@@ -1,3 +1,5 @@
-# webtechpro
- a repo for webtech project <br>
- desc to be updated soon
+# WebTechProject
+## Typing web app for coders
+ A repo for webtech project.<br>
+
+ 
