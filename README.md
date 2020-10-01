@@ -2,7 +2,7 @@
 ## Typing web app for coders
  A repo for webtech project.<br>
 
-##how to use
+## How to use
  - Need npm and node installed
  - clone the repo first
  - go to webtechpro folder after cloning 
