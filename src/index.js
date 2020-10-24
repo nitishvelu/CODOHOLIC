@@ -6,9 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App theme={{
-      color: 'green'
-    }}/>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
