@@ -1,6 +1,7 @@
 import React from 'react';
 
-class KeyboardGuide extends React.Component {
+
+class KeyBoardGuide extends React.Component {
   // constructor()
   // {
   //   //useless constructor will add stuff later
@@ -16,4 +17,5 @@ class KeyboardGuide extends React.Component {
     )
   }
 }
-export default KeyboardGuide;
+export default KeyBoardGuide;
+
