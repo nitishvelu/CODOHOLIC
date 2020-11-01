@@ -1,0 +1,10 @@
+.typedSpan{
+    background-color: black;
+    color: gray; 
+}
+
+.activeSpan{
+    background-color: yellow;
+    color: black;
+}
+

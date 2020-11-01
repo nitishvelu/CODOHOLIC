@@ -1,4 +1,13 @@
 import React from 'react';
+import keyboard from '../images/QWERTY_keyboard_diagram.svg'
+
+const style = {
+  width : '85%',
+}
+const divStyle = {
+  display: 'flex',
+  placeContent: 'center',
+}
 
 
 class KeyBoardGuide extends React.Component {
@@ -7,12 +16,13 @@ class KeyBoardGuide extends React.Component {
   //   //useless constructor will add stuff later
   //   super();
   // }
+  
 
   render ()
   {
     return (
-      <div>
-
+      <div style={divStyle}>
+          <img src ={keyboard} alt='keyboard' style={style}/>
       </div>
     )
   }

@@ -1,5 +1,8 @@
 import React from 'react';
 
+var navStyle ={
+  margin: 10
+}
 class NavBar extends React.Component {
   // constructor()
   // {
@@ -7,12 +10,14 @@ class NavBar extends React.Component {
   //   super();
   // }
 
+  //style
+  
   render ()
   {
     return (
-      <span >
-       {/* buttons here or something */}
-      </span>
+      <a href="https://a.wattpad.com/cover/110852044-352-k23308.jpg" style = {navStyle}>
+       Login/Sign up
+      </a>
     )
   }
 }
