@@ -1,3 +1,17 @@
+#sampBox{
+    background-color: black;
+    padding: 35px;
+    font-family : monospace;
+    border: solid 11px #ffff01ed;
+    color: white;
+  }
+
+
+.sampleText {
+    padding : 1px;
+    font-size : 28px;
+  }
+  
 .typedSpan{
     background-color: black;
     color: gray; 
