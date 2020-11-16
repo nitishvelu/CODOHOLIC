@@ -1,7 +1,6 @@
 import React from 'react';
 import './SampleTextBox.css';
-import {Controller} from '../App';
-
+import {Controller} from './Controller';
 
 class SampleTextBox extends React.Component {
   constructor(props)
@@ -13,13 +12,17 @@ class SampleTextBox extends React.Component {
       return (<span key={index} className='sampleText'>{ele}</span>)
       });
   }
+  
+
 
   render ()
   {
     return (
+      <div id = 'sampParent' >
       <div id = 'sampBox' >
         {this.arr}
-        <Controller sampleText = {this.props.sampleText} / > 
+      </div>
+      <Controller sampleText = {this.props.sampleText} / > 
       </div>
     );
   }
