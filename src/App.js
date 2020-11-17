@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import KeyboardGuide from './components/KeyboardGuide';
+//import KeyboardGuide from './components/KeyboardGuide';
+import FingerGuide from './components/FingerGuide';
 import SampleTextBox from './components/SampleTextBox';
 
 var sampleText;
@@ -26,7 +27,7 @@ function App(props) {
 
       <SampleTextBox sampleText={sampleText}/>
 
-      <KeyboardGuide />
+      <FingerGuide />
 
 
 
