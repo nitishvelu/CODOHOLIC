@@ -20,13 +20,15 @@ export class Controller extends React.Component {
         data : false,
       };
       this.startTime = 0;
- 
+      console.log(this.props.sampleText)
+      
+      
       
     }
 
     componentDidMount()
     {
-      console.log('entered mount function')
+      //console.log('entered mount function')
       //document.getElementById('results').style.display = 'none';
       this.setState({
         data: false,
@@ -38,7 +40,7 @@ export class Controller extends React.Component {
       this.div.addEventListener('blur',this.controllerHandleBlur);
       this.div.addEventListener('click',this.controllerClickHandler);
       this.div.addEventListener('keypress',this.handleKey);
-
+      this.div.addEventListener('keydown',this.handleKeydown);
 
 
     }
@@ -59,6 +61,17 @@ export class Controller extends React.Component {
           division.children[pos - 1].classList.add('typedSpan');
         }
     }
+
+
+    handleKeydown = event => {
+     ///event.preventDeafault();
+        if (event.keyCode === 9) {
+          event.preventDefault();
+          this.handleKey(event);
+        }
+
+      }
+        
   
 
 
@@ -73,6 +86,8 @@ export class Controller extends React.Component {
           //removing event listeners
           this.div.removeEventListener('blur',this.controllerHandleBlur);
           this.div.removeEventListener('click',this.controllerClickHandler);
+          this.div.removeEventListener('keydown',this.handleKeydown);
+
           this.div.removeEventListener('keypress',this.handleKey);
 
           document.getElementById('sampBox').style.display = 'none';
@@ -93,8 +108,16 @@ export class Controller extends React.Component {
 
           return;
         }
+
+
+        
+        console.log(` typed - ${String.fromCharCode(event.keyCode)} code - ${event.keyCode} \nExpected - ${this.props.sampleText[this.state.sampleIndex]}  code -  ${this.props.sampleText.charCodeAt(this.state.sampleIndex)}` );
       
-      if(event.key === this.props.sampleText[this.state.sampleIndex])
+      
+      
+        if( (String.fromCharCode(event.keyCode) === this.props.sampleText[this.state.sampleIndex]) 
+              || (event.keyCode === 13 && this.props.sampleText.charCodeAt(this.state.sampleIndex) === 9166)
+              || (event.keyCode === 9 && this.props.sampleText.charCodeAt(this.state.sampleIndex) === 8633) )
       {
         if(this.state.sampleIndex === 0)
           this.startTimer();// starting timer
@@ -108,6 +131,11 @@ export class Controller extends React.Component {
       }
       else{
         //wrong key entered
+        document.getElementById('sampBox').children[this.state.sampleIndex].classList.add('error');
+        setTimeout( () => {
+          document.getElementById('sampBox').children[this.state.sampleIndex].classList.remove('error');
+        }, 150);
+
         userResults.errors++;
       }
     }
@@ -129,8 +157,10 @@ export class Controller extends React.Component {
       this.setState({
         sampleIndex : 0,
       });
+
       document.getElementById('controller').children[0].innerHTML = 'Click to start';
       userResults.errors = 0;
+
      }
   
      startTimer = () => {this.startTime = new Date()} //starts timer
@@ -143,7 +173,7 @@ export class Controller extends React.Component {
       userResults.accuracy = Math.round(this.props.sampleText.length / (this.props.sampleText.length + userResults.errors)*100);
     
       console.log(`${JSON.stringify(userResults)}`);
-  
+   
      }
   
      render()

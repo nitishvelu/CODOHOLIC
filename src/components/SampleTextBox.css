@@ -4,17 +4,33 @@
     font-family : monospace;
     border: solid 11px #ffff01ed;
     color: white;
+
   }
+
+  .error { 
+    background-color: red !important;
+  }
+
+  .endOfLine::after{
+    content: "\a";
+    white-space: pre;
+}
+
+
 
 
 .sampleText {
     padding : 1px;
-    font-size : 28px;
+    font-size : 22px;
+    white-space: pre;
   }
+
+  
   
 .typedSpan{
     background-color: black;
     color: gray; 
+
 }
 
 .activeSpan{

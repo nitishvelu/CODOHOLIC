@@ -24,7 +24,8 @@ class Results extends React.Component {
 
         //temp fix just reloading page
         window.location.reload(false);
-
+        
+        
         document.getElementById('sampBox').style.display = 'block';
         document.getElementById('controller').style.display = 'block';
         document.getElementById('controller').innerHTML = 'Click to start';
