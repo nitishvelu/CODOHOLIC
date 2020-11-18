@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-//import KeyboardGuide from './components/KeyboardGuide';
-import FingerGuide from './components/FingerGuide';
+
+
 import SampleTextBox from './components/SampleTextBox';
 
 var sampleText;
@@ -23,7 +23,8 @@ function generateSampleText()
   p {
     font-family: verdana;
     font-size: 20px;
-  }`];
+  }
+  Just ChecKing if \\ is working`,`122345`];
   //let index = Math.random()<= 0.33 ? 0 : (Math.random()< 0.66 ? 1 : 2);
   return arr[3];
 }
@@ -41,10 +42,6 @@ function App(props) {
       <Header />
 
       <SampleTextBox sampleText={sampleText}/>
-
-      <FingerGuide />
-
-
 
       <Footer />
 

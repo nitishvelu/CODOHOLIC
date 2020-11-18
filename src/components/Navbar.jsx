@@ -1,7 +1,8 @@
 import React from 'react';
 
 var navStyle ={
-  margin: 10
+  margin: 10,
+  float: 'right'
 }
 class NavBar extends React.Component {
   // constructor()

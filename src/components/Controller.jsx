@@ -1,6 +1,6 @@
 import React from 'react';
 import Results from './Results';
-
+import FingerGuide from './FingerGuide';
 export var userResults = {
   speed: 0,
   accuracy: 0,
@@ -10,18 +10,18 @@ export var userResults = {
 }
 
 
+
+
 export class Controller extends React.Component {
     constructor(props)
     {
-      //useless constructor will add stuff later
       super(props);
       this.state = {
         sampleIndex : 0,
         data : false,
+        ready: false,
       };
       this.startTime = 0;
-      console.log(this.props.sampleText)
-      
       
       
     }
@@ -78,9 +78,11 @@ export class Controller extends React.Component {
     handleKey = event =>
     {
       // handle key event on the controller component
+      event.preventDefault();
       if((this.state.sampleIndex === this.props.sampleText.length - 1))
         {
           // end of sample computing time
+          this.ready = false;
           this.computeSampleSpeed();
 
           //removing event listeners
@@ -96,6 +98,7 @@ export class Controller extends React.Component {
           this.setState({
             data: true,
             sampleIndex: 0,
+            ready: false,
           })
         
           // var h = document.getElementsByTagName("H1")[0];
@@ -131,10 +134,11 @@ export class Controller extends React.Component {
       }
       else{
         //wrong key entered
-        document.getElementById('sampBox').children[this.state.sampleIndex].classList.add('error');
+        let pos = this.state.sampleIndex;
+        document.getElementById('sampBox').children[pos].classList.add('error');
         setTimeout( () => {
-          document.getElementById('sampBox').children[this.state.sampleIndex].classList.remove('error');
-        }, 150);
+          document.getElementById('sampBox').children[pos].classList.remove('error');
+        }, 100);
 
         userResults.errors++;
       }
@@ -143,6 +147,9 @@ export class Controller extends React.Component {
     controllerClickHandler = () => {
       // handles click of controller
       // activates text
+      this.setState({
+        ready: true,
+      })
       document.getElementById('sampBox').children[0].classList.add('activeSpan');
       document.getElementById('controller').children[0].innerHTML = '';
     }
@@ -156,6 +163,7 @@ export class Controller extends React.Component {
   
       this.setState({
         sampleIndex : 0,
+        ready: false,
       });
 
       document.getElementById('controller').children[0].innerHTML = 'Click to start';
@@ -185,6 +193,7 @@ export class Controller extends React.Component {
           <center>Click to start</center>
         </div>
           <Results userResults = {userResults} data = {this.state.data}/> 
+          <FingerGuide letter={this.state.ready ? this.props.sampleText[this.state.sampleIndex]: '⎈' } />
         </div>
         );
       }
