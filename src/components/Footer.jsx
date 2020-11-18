@@ -9,7 +9,7 @@ var style = {
         alignItems: 'center',
         justifyContent: 'space-between',
         padding : 11,
-        position: 'absolute',
+        position: 'fixed',
         bottom: 0,
     }
 }
