@@ -24,7 +24,7 @@ function generateSampleText()
     font-family: verdana;
     font-size: 20px;
   }`];
-  let index = Math.random()<= 0.33 ? 0 : (Math.random()< 0.66 ? 1 : 2);
+  //let index = Math.random()<= 0.33 ? 0 : (Math.random()< 0.66 ? 1 : 2);
   return arr[3];
 }
 
