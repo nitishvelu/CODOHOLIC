@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://apex:apex@cluster0.nik3x.mongodb.net/<dbname>?retryWrites=true&w=majority"
+}
