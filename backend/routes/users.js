@@ -4,7 +4,7 @@ const gravatar= require('gravatar');
 const jwt =require('jsonwebtoken');
 const config =require('config');
 const bcrypt= require('bcryptjs'); //for encrypting password on the database
-const { check, validateResult, validationResult } =require('express-validator');
+const { check, validationResult } =require('express-validator');
 //user regestration
 const User= require('../models/User')
 router.post(
