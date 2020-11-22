@@ -20,3 +20,6 @@ const ProfileSchema = new mongoose.Schema({
         type: Number
     }
 });
+
+// eslint-disable-next-line no-undef
+module.exports = Profile = mongoose.model('profile',ProfileSchema);
