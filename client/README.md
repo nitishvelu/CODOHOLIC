@@ -1,6 +1,6 @@
 # WebTechProject
 ## Typing web app for coders
- A repo for webtech project.<br>
+ A repo for the CODOHOLIC project.<br>
 
 ## How to use
  - Need npm and node installed
@@ -10,7 +10,6 @@
 To run the project
 ```
 npm install
-npm start // to start the dev server
 ```
 
 Then go to chrome and open // genreally opens on its own after npm start
