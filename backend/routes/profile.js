@@ -34,7 +34,7 @@ router.post('/',auth,async (req,res)=>{
         snippetsCompleted
     } = req.body;
 
-    // Build profiel object
+    // Build profile object
     const profileFields={};
     profileFields.user=req.user.id;
     if (wpm) profileFields.wpm =wpm;
@@ -67,7 +67,7 @@ router.post('/',auth,async (req,res)=>{
    
 });
 
-//public get all profiles @route /profiles
+//public get all profiles @route /profile
 router.get('/',async (req,res)=>{
     try {
         const profiles = await Profile.find().populate('user',['name','avatar']);
@@ -78,4 +78,18 @@ router.get('/',async (req,res)=>{
     }
 });
 
+//public get single user profile
+router.get('/user/:user_id',async (req,res)=>{
+    try {
+        const profile = await Profile.findOne({user: req.params.user_id}).populate('user',['name','avatar']);
+        
+        if(!profile) return res.status(400).json({msg:"profile not found"});
+        
+        res.json(profile);
+    } catch (err) {
+        console.error(err.message);
+        if(err.kind =='ObjectId')return res.status(400).json({msg:"profile not found"});
+        res.status(500).send('server error');
+    }
+});
 module.exports = router;
