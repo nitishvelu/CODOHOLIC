@@ -56,6 +56,10 @@ router.post('/',auth,async (req,res)=>{
                 );
             return res.json(profile);
         }
+        // create
+        profile= new Profile(profileFields);
+        await Profile.save();
+        res.json(profile);
 
     }catch(err){
         console.error(err.message);
