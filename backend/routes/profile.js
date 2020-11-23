@@ -66,5 +66,4 @@ router.post('/',auth,async (req,res)=>{
         res.status(500).send('server error');
     }
    
-    res.send('created');
 });
