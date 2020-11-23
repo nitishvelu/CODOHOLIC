@@ -21,7 +21,6 @@ router.get('/me',auth,async (req,res)=> {
     }
 });
 
-module.exports = router;
 
 //private create or update user profile
 
@@ -67,3 +66,16 @@ router.post('/',auth,async (req,res)=>{
     }
    
 });
+
+//public get all profiles @route /profiles
+router.get('/',async (req,res)=>{
+    try {
+        const profiles = await Profile.find().populate('user',['name','avatar']);
+        res.json(profiles);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('server error');
+    }
+});
+
+module.exports = router;
