@@ -1,9 +1,9 @@
 import React from 'react';
 
 const style = {
-    backgroundColor: 'black',
+    backgroundColor: '#28abb9',
     color: 'white',
-    border: '6px solid yellow',
+    border: '6px solid white',
     fontFamily: 'monospace',
     padding : 30,
     fontSize: 22,

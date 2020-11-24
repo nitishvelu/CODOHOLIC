@@ -28,13 +28,13 @@
   
   
 .typedSpan{
-    background-color: black;
+    background-color:#28abb9;
     color: gray; 
 
 }
 
 .activeSpan{
-    background-color: yellow;
+    background-color: white;
     color: black;
 }
 
