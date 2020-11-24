@@ -1,7 +1,8 @@
-import React from 'react';
+import React ,{Fragment}from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 
 
 import SampleTextBox from './components/SampleTextBox';
@@ -38,14 +39,21 @@ sampleText = generateSampleText();
 
 function App(props) {
   return (
-    <div>
+    <Router>
+    <Fragment>
       <Header />
 
-      <SampleTextBox sampleText={sampleText}/>
+      
+    <Route
+    path='/'
+    render={(props) => (
+    <SampleTextBox {...props} sampleText={sampleText} />
+    )}/>
 
       <Footer />
 
-    </div>
+      </Fragment>
+      </Router>
   );
 }
 
