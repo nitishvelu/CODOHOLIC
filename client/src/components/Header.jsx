@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './Navbar';
+import {Link} from 'react-router-dom';
 
 import logo from '../images/coding.svg';
 const stylesheet = {
@@ -10,9 +11,11 @@ const stylesheet = {
     title: {
         fontFamily: 'monospace',
         fontSize: 25,
+        textDecoration: 'none', 
+        color: 'white' 
     },
     header: {
-        backgroundColor: 'yellow',
+        backgroundColor: "#2d6187",
         top: 0,
         width: '100%',
         display: 'flex',
@@ -40,7 +43,7 @@ class Header extends React.Component {
                     src={logo} 
                     alt="logo"
                     />
-                    <h1 id = 'title' style = {stylesheet.title}>Codoholic</h1>
+                    <Link to='/' style = {stylesheet.title}>Codoholic</Link>
                 </div>
                 <NavBar />
             </header>

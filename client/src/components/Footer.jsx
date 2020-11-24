@@ -3,7 +3,7 @@ import React from 'react';
 
 var style = {
     footer: {
-        backgroundColor: 'yellow',
+        backgroundColor: '#2d6187',
         width: '100%',
         display: 'flex',
         alignItems: 'center',
@@ -11,6 +11,7 @@ var style = {
         padding : 11,
         position: 'fixed',
         bottom: 0,
+        color:"white"
     }
 }
 

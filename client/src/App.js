@@ -2,6 +2,8 @@ import React ,{Fragment}from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 
 
@@ -42,14 +44,18 @@ function App(props) {
     <Router>
     <Fragment>
       <Header />
-
-      
-    <Route
+      <section className='container'>
+    <Switch>
+        <Route  path='/login' component={Login}/>
+        <Route  path='/register' component={Register}/>
+        <Route
     path='/'
     render={(props) => (
     <SampleTextBox {...props} sampleText={sampleText} />
     )}/>
-
+    </Switch>
+    </section>
+    
       <Footer />
 
       </Fragment>

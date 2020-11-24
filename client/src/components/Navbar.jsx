@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import {Link} from 'react-router-dom';
 
 var navStyle ={
   margin: 10,
-  float: 'right'
+  float: 'right',
+  color:"white",
+  textDecoration: 'none'
 }
 class NavBar extends React.Component {
   // constructor()
@@ -15,10 +18,14 @@ class NavBar extends React.Component {
   
   render ()
   {
-    return (
-      <a href="https://a.wattpad.com/cover/110852044-352-k23308.jpg" style = {navStyle}>
-       Login/Sign up
-      </a>
+    return (<Fragment>
+      <Link to="/login" style = {navStyle}>
+       Login
+      </Link>
+      <Link to="/register" style = {navStyle}>
+      Register
+     </Link>
+     </Fragment>
     )
   }
 }
