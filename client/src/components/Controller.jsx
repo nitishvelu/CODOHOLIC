@@ -189,7 +189,7 @@ export class Controller extends React.Component {
         
         return (
           <div key = 'res' id='result'>
-        <div id = 'controller' tabIndex = '0' style = { {backgroundColor : 'antiquewhite', fontFamily: 'monospace', fontSize: 22} } >
+        <div id = 'controller' tabIndex = '0' style = { {backgroundColor : '#28abb9', fontFamily: 'monospace', fontSize: 22} } >
           <center>Click to start</center>
         </div>
           <Results userResults = {userResults} data = {this.state.data}/> 
