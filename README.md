@@ -1,5 +1,5 @@
 <p align="center">
-# **CODOHOLIC**
+**CODOHOLIC**
 </p>
 <p align="center">
  <img src="./client/src/images/codinggithub.svg" width="350">
