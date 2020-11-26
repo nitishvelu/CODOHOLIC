@@ -1,5 +1,7 @@
-# <p align=""center">**CODOHOLIC**</p>
-<p align=""center"><img src="./client/src/images/codinggithub.svg" width="350"></p>
+# **CODOHOLIC**
+<p align="center">
+ <img src="./client/src/images/codinggithub.svg" width="350">
+</p>
 
 ## **Typing web app for coders**
  A repo for the CODOHOLIC project.<br>
