@@ -1,6 +1,6 @@
-# <p align="center">
-CODOHOLIC
-</p>
+<div align="center">
+# **CODOHOLIC**
+</div>
 <p align="center">
  <img src="./client/src/images/codinggithub.svg" width="350">
 </p>
