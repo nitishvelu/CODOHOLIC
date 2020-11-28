@@ -70,7 +70,7 @@ router.post('/',auth,async (req,res)=>{
 //public get all profiles @route /profile
 router.get('/',async (req,res)=>{
     try {
-        const profiles = await Profile.find().populate('user',['name','avatar']);
+        const profiles = await Profile.find().sort({'wpm':-1}).limit(10).populate('user',['name','avatar']); //top ten based on wpm
         res.json(profiles);
     } catch (err) {
         console.error(err.message);
