@@ -15,4 +15,4 @@ app.use('/profile',require('./routes/profile'));
 app.use('/auth',require('./routes/auth'));
 
 
-app.listen(PORT,() => console.log('server started on port ${PORT}') );
+app.listen(PORT,() => console.log(`server started on port ${PORT}`) );
