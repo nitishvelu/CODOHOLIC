@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
+import Alert from './components/auth/Alert'
 //redux
 import {Provider} from 'react-redux';
 import store from './store'
@@ -48,6 +49,7 @@ function App(props) {
     <Fragment>
       <Header />
       <section className='container'>
+      <Alert />
     <Switch>
         <Route  path='/login' component={Login}/>
         <Route  path='/register' component={Register}/>
