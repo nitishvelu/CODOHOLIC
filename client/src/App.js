@@ -5,7 +5,9 @@ import Footer from './components/Footer';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
-
+//redux
+import {Provider} from 'react-redux';
+import store from './store'
 
 import SampleTextBox from './components/SampleTextBox';
 
@@ -41,6 +43,7 @@ sampleText = generateSampleText();
 
 function App(props) {
   return (
+    <Provider store= {store}>
     <Router>
     <Fragment>
       <Header />
@@ -60,6 +63,7 @@ function App(props) {
 
       </Fragment>
       </Router>
+      </Provider>
   );
 }
 
