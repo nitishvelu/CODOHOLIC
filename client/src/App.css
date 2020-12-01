@@ -4,11 +4,11 @@
 }
 
 .alert {
-  padding: 0.8rem;
-  margin: 1rem 0;
+  margin: 1em;
+  padding: 0.61em;
   opacity: 0.9;
-  background: var(--light-color);
   color: #333;
+  border-radius: 4px;
 }
 
 
