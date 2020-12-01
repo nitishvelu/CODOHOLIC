@@ -2,3 +2,25 @@
   text-align: center;
   background-color: #FFFFFF;
 }
+
+.alert {
+  padding: 0.8rem;
+  margin: 1rem 0;
+  opacity: 0.9;
+  background: var(--light-color);
+  color: #333;
+}
+
+
+
+.alert-danger {
+  background: rgb(226, 29, 29);
+  color: #fff;
+}
+
+
+.alert-success {
+  background: hsl(120, 78%, 57%);
+  color: #fff;
+}
+
