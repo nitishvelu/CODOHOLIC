@@ -6,11 +6,11 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import Alert from './components/auth/Alert'
+import SampleTextBox from './components/SampleTextBox';
 //redux
 import {Provider} from 'react-redux';
 import store from './store'
 import {loadUser} from './actions/auth';
-import SampleTextBox from './components/SampleTextBox';
 import setAuthToken from './utils/setAuthToken';
 
 var sampleText;
