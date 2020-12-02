@@ -39,6 +39,7 @@ function generateSampleText()
 
 
 sampleText = generateSampleText();
+
 if (localStorage.token){
   setAuthToken(localStorage.token);
 }
