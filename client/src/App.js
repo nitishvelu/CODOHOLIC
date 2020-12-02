@@ -1,4 +1,4 @@
-import React ,{Fragment}from 'react';
+import React ,{Fragment,useEffect}from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,8 +9,9 @@ import Alert from './components/auth/Alert'
 //redux
 import {Provider} from 'react-redux';
 import store from './store'
-
+import {loadUser} from './actions/auth';
 import SampleTextBox from './components/SampleTextBox';
+import setAuthToken from './utils/setAuthToken';
 
 var sampleText;
 
@@ -38,11 +39,17 @@ function generateSampleText()
 
 
 sampleText = generateSampleText();
+if (localStorage.token){
+  setAuthToken(localStorage.token);
+}
 
 
 
 
 function App(props) {
+  useEffect(()=>{
+    store.dispatch(loadUser());
+  },[]);//basically a componentDidMount the '[]' parameter to ensure that it runs only once
   return (
     <Provider store= {store}>
     <Router>
