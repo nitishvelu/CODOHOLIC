@@ -7,6 +7,8 @@ import Register from './components/auth/Register';
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import Alert from './components/auth/Alert'
 import SampleTextBox from './components/SampleTextBox';
+import Profile from './components/Profile';
+
 //redux
 import {Provider} from 'react-redux';
 import store from './store'
@@ -61,6 +63,7 @@ function App(props) {
     <Switch>
         <Route  path='/login' component={Login}/>
         <Route  path='/register' component={Register}/>
+        <Route  path='/profile' component={Profile}/>
         <Route
     path='/'
     render={(props) => (
