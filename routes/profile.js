@@ -42,8 +42,8 @@ router.post('/',auth,async (req,res)=>{
     if (noOfCharacters) profileFields.noOfCharacters =noOfCharacters;
     if (snippetsCompleted) profileFields.snippetsCompleted =snippetsCompleted;
     if (preferredLanguages) {
-        profileFields.preferredLanguages =preferredLanguages.split(',').map(preferredLanguages=> preferredLanguages.trim());
-    }
+        profileFields.preferredLanguages =preferredLanguages;
+    } 
     try{
         let profile =await Profile.findOne({user:req.user.id});
         if(profile){

@@ -7,11 +7,16 @@ import Register from './components/auth/Register';
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import Alert from './components/auth/Alert'
 import SampleTextBox from './components/SampleTextBox';
+import Profile from './components/Profile';
+import CreateProfile from './components/CreateProfile';
+
 //redux
 import {Provider} from 'react-redux';
 import store from './store'
 import {loadUser} from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
+//private route
+import PrivateRoute from './components/routing/PrivateRoute';
 
 
 if (localStorage.token){
@@ -35,6 +40,9 @@ function App(props) {
     <Switch>
         <Route  path='/login' component={Login}/>
         <Route  path='/register' component={Register}/>
+        <PrivateRoute  path='/profile' component={Profile}/>
+        <PrivateRoute  path='/create-profile' component={CreateProfile}/>
+
         <Route path='/' component={SampleTextBox}/>
     </Switch>
     </section>
