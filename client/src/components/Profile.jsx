@@ -4,13 +4,18 @@ import {connect} from 'react-redux';
 import {getCurrentProfile} from '../actions/profile';
 import Spinner from './Spinner';
 
-const Profile = ({getCurrentProfile,auth,profile:{profile,loading}}) => {
+const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
     useEffect(()=>{
         getCurrentProfile();
     },[]);
-    return ( loading && profile === null ? <Spinner/>: <Fragment>test</Fragment>
+    
+    return ( loading && profile === null ? <Spinner/>: 
+    <Fragment>
+         <h1>Profileeee</h1>
+         <h2>Welcome {user && user.name}</h2>
+    </Fragment>
+       
         );
-    //return(<div>yoooooo</div>)
 }
 
 Profile.propTypes = {

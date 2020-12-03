@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { Fragment } from 'react';
 import {GET_PROFILE,PROFILE_ERROR} from './types';
 
 // get current users profile
