@@ -1,0 +1,4 @@
+{
+    "mongoURI": "your api key here dont forget to remove the <passwd> tag and add your user password ",
+    "jwtSecret": "fsklfjosfhjbfijhwofhoshfsijk"
+}
