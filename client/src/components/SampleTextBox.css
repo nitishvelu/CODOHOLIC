@@ -4,7 +4,9 @@
     font-family : monospace;
     border: solid 11px #ffffffed;
     color: white;
-
+    scrollbar-width: none;
+    max-height:33vh; 
+    overflow: auto;
   }
 
   .error { 

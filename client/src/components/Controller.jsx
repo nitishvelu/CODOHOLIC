@@ -100,16 +100,15 @@ export class Controller extends React.Component {
             sampleIndex: 0,
             ready: false,
           })
-        
-          // var h = document.getElementsByTagName("H1")[0];
-          //   var typ = document.createAttribute("class");
-          // //   typ.value = "democlass";
-          // //   h.attributes.setNamedItem(typ);
-          // var  data = document.createAttribute("data");
-          // data.value = JSON.stringify(userResults);
-          // document.getElementById('results').attributes.setNamedItem(data);
 
           return;
+        }
+
+        //auto-scroller
+        if (event.keyCode === 13 && this.props.sampleText.charCodeAt(this.state.sampleIndex) === 9166)
+        {
+          let ele = document.getElementById('sampBox').children[this.state.sampleIndex];
+          ele.scrollIntoView();
         }
 
 
@@ -122,6 +121,8 @@ export class Controller extends React.Component {
               || (event.keyCode === 13 && this.props.sampleText.charCodeAt(this.state.sampleIndex) === 9166)
               || (event.keyCode === 9 && this.props.sampleText.charCodeAt(this.state.sampleIndex) === 8633) )
       {
+
+        
         if(this.state.sampleIndex === 0)
           this.startTimer();// starting timer
   
@@ -130,6 +131,7 @@ export class Controller extends React.Component {
         });
   
         this.shiftCursor(this.state.sampleIndex);
+        
         
       }
       else{
