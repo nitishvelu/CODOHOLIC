@@ -31,7 +31,7 @@ export const createProfile= (formData,history,edit=false) =>async dispatch =>{
             type: GET_PROFILE,
             payload: res.data
         });
-        dispatch(setAlert(edit?'profile updated':'profile created','success'))
+        dispatch(setAlert(edit?'profile updated':'profile saved','success'))
         if(!edit){
             history.push('/');//redirection outside components
         }
