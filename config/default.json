@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://apex:apex@cluster0.nik3x.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "mongoURI": "mongodb+srv://srini:srini@cluster0.jozqi.mongodb.net/<dbname>?retryWrites=true&w=majority",
     "jwtSecret": "srinibhai"
 }
