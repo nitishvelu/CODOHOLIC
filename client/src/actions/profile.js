@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {GET_PROFILE,PROFILE_ERROR} from './types';
-import setAlert from './alert';
+import {setAlert} from './alert';
 
 // get current users profile
 export const getCurrentProfile=()=> async dispatch =>{
@@ -31,7 +31,7 @@ export const createProfile= (formData,history,edit=false) =>async dispatch =>{
             type: GET_PROFILE,
             payload: res.data
         });
-        dispatch(setAlert(edit?'profile updated':'profile created'))
+        dispatch(setAlert(edit?'profile updated':'profile created','success'))
         if(!edit){
             history.push('/');//redirection outside components
         }
