@@ -63,3 +63,20 @@ export const getProfiles=()=> async dispatch =>{
         });
     }
 }
+// get profile by id
+export const getProfilebyid= userId=> async dispatch =>{
+    dispatch({type: CLEAR_PROFILE});
+    try{
+        const res=await axios.get(`/profile/user/&{userId}`);
+        dispatch({
+            type: GET_PROFILE,
+            payload: res.data
+        });
+
+    } catch(err){
+        dispatch({
+            type: PROFILE_ERROR,
+            payload:{msg: err.response.statusText,status: err.response.status}
+        });
+    }
+}

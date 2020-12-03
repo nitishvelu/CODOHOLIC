@@ -21,6 +21,7 @@ const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
             <Link to='/create-profile'>edit</Link>
          </Fragment>
          :<Fragment>
+             <h1>'{profile.profile.wpm}'</h1>
              <p>you have not set up the preferred languages please set it up</p>
             <Link to='/create-profile'>create profile</Link>
         </Fragment>}
