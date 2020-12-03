@@ -17,11 +17,17 @@ const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
          <h2>Welcome {user && user.name}</h2>
          {profile !==null? 
          <Fragment>
+             <img src={profile.user.avatar} alt='profile pic'/>
+             <p>wpm: {profile.wpm== null? 0:profile.wpm}</p>
+             <p>accuracy: {profile.accuracy}</p>
+             <p>snippetsCompleted: {profile.snippetsCompleted== null? 0:profile.snippetsCompleted}</p>
+             <p>preferredLanguages: {profile.preferredLanguages}</p>
+             <p>noOfCharacters: {profile.noOfCharacters== null? 0:profile.noOfCharacters}</p>
+
              <p>wanna change the preferred languages??</p>
             <Link to='/create-profile'>edit</Link>
          </Fragment>
          :<Fragment>
-             <h1>'{profile.profile.wpm}'</h1>
              <p>you have not set up the preferred languages please set it up</p>
             <Link to='/create-profile'>create profile</Link>
         </Fragment>}
