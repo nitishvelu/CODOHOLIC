@@ -33,9 +33,9 @@ npm install
 
 ```
 ### setup database connection
-rename the file /congig/Xdefault.json to default.json<br>
-get the [api keys](https://youtu.be/1duX6Nfevhc?t=17) from mongodb and paste them in the defaut.json in the particular mongoURI field<br>
-also dont forge to remove the <passwd> tag and replace it with the user password<br>
+- Rename the file /congig/Xdefault.json to default.json<br>
+- Get the [api keys](https://youtu.be/1duX6Nfevhc?t=17) from mongodb and paste them in the defaut.json in the particular mongoURI field<br>
+- dont forget to remove the <passwd> tag and replace it with the user password<br>
 ### starting the node servers
 the following bash commands opens the front end server(react) on [localhost port 3000](http://localhost:3000) and the backend on [port 5000](http://localhost:5000)
 ```bash
