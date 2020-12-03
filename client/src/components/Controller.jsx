@@ -113,7 +113,10 @@ export class Controller extends React.Component {
 
           let ele = document.getElementById('sampBox').children[this.state.sampleIndex];
           if(hasVerticalScrollbar)
-            ele.scrollIntoView(true);
+          {
+            ele.parentNode.scrollTop = ele.offsetTop - ele.parentNode.offsetTop;
+          }
+            // ele.scrollIntoView(true);
         }
 
 
