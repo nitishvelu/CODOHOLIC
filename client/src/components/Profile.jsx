@@ -1,17 +1,16 @@
-import React,{useEffect} from 'react';
+import React,{Fragment, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getCurrentProfile} from '../actions/profile';
+import Spinner from './Spinner';
 
-const Profile = ({getCurrentProfile,auth,profile}) => {
+const Profile = ({getCurrentProfile,auth,profile:{profile,loading}}) => {
     useEffect(()=>{
         getCurrentProfile();
     },[]);
-    return (
-        <div>
-            profile
-        </div>
-    )
+    return ( loading && profile === null ? <Spinner/>: <Fragment>test</Fragment>
+        );
+    //return(<div>yoooooo</div>)
 }
 
 Profile.propTypes = {
