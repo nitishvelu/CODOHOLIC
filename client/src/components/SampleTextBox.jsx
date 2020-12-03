@@ -8,13 +8,25 @@ class SampleTextBox extends React.Component {
   
   constructor(props)
   {
-    //useless constructor will add stuff later
     super(props);
 
-    // const data = require('../data/languages.json');
-    // console.log(data);
     this.sampleText = javasnippet;
-    
+    // this.sampleText = `a
+    // b
+    // c
+    // d
+    // e
+    // f
+    // g
+    // h
+    // i
+    // j
+    // k
+    // l
+    // m
+    // n
+    // o
+    // p`
     this.text = this.sampleText.replaceAll(/(\r\n|\n|\r)/gm,"⏎");
     this.text = this.text.replaceAll(/\s\s\s\s/gm,"↹");
     this.arr1 = this.text.split('');
