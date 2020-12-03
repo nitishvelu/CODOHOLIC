@@ -14,6 +14,8 @@ import {Provider} from 'react-redux';
 import store from './store'
 import {loadUser} from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
+//private route
+import PrivateRoute from './components/routing/PrivateRoute';
 
 var sampleText;
 
@@ -63,7 +65,7 @@ function App(props) {
     <Switch>
         <Route  path='/login' component={Login}/>
         <Route  path='/register' component={Register}/>
-        <Route  path='/profile' component={Profile}/>
+        <PrivateRoute  path='/profile' component={Profile}/>
         <Route
     path='/'
     render={(props) => (
