@@ -104,11 +104,19 @@ export class Controller extends React.Component {
           return;
         }
 
-        //auto-scroller
+        //auto-scroller experimental
         if (event.keyCode === 13 && this.props.sampleText.charCodeAt(this.state.sampleIndex) === 9166)
         {
+          let div = document.getElementById('sampBox')
+
+          var hasVerticalScrollbar = div.scrollHeight > div.clientHeight;
+
           let ele = document.getElementById('sampBox').children[this.state.sampleIndex];
-          ele.scrollIntoView();
+          if(hasVerticalScrollbar)
+          {
+            ele.parentNode.scrollTop = ele.offsetTop - ele.parentNode.offsetTop;
+          }
+            // ele.scrollIntoView(true);
         }
 
 
