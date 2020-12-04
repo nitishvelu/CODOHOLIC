@@ -20,7 +20,7 @@ import setAuthToken from './utils/setAuthToken';
 //private route
 import PrivateRoute from './components/routing/PrivateRoute';
 
-import { isMobile } from 'react-device-detect';
+//import { isMobile } from 'react-device-detect';
 
 
 if (localStorage.token){
@@ -34,9 +34,9 @@ function App(props) {
   useEffect(()=>{
     store.dispatch(loadUser());
   },[]);//basically a componentDidMount the '[]' parameter to ensure that it runs only once
-  if (isMobile) {
-    return <Mobile/>
-}
+//  if (isMobile) {
+ //   return <Mobile/>
+//}
 return (
  
     <Provider store= {store}>
