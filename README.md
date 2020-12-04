@@ -26,14 +26,14 @@ git clone https://github.com/nitishvelu/webtechpro.git
 
 ### To install node dependencies
 ```bash
-cd webtechpro
+cd CODOHOLIC
 npm install
 cd client 
 npm install
 
 ```
 ### setup database connection
-- Rename the file /congig/Xdefault.json to default.json<br>
+- Rename the file /config/Xdefault.json to default.json<br>
 - Get the [api keys](https://youtu.be/1duX6Nfevhc?t=17) from mongodb and paste them in the defaut.json in the particular mongoURI field<br>
 - dont forget to remove the <passwd> tag and replace it with the user password<br>
 ### starting the node servers
