@@ -52,15 +52,16 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../actions/auth';
+import './Navbar.css';
 
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to="/leaderboard">leaderboard</Link>
+        <Link to="/leaderboard">Leaderboard</Link>
       </li>
       <li>
-        <Link to="/profile">profile</Link>
+        <Link to="/profile">Profile</Link>
       </li>
       <li>
         <a onClick={logout} href="#!">
@@ -73,21 +74,16 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/register">Register</Link>
+        <Link to="/login">Login</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
       </li>
     </ul>
   );
 
   return (
     <nav >
-      <h1>
-        <Link to="/">
-          CODOHOLIC
-        </Link>
-      </h1>
       <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
     </nav>
   );
