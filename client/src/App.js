@@ -9,8 +9,6 @@ import Alert from './components/auth/Alert'
 import SampleTextBox from './components/SampleTextBox';
 import Profile from './components/Profile';
 import CreateProfile from './components/CreateProfile';
-import {Mobile} from './components/Mobile';
-
 
 //redux
 import {Provider} from 'react-redux';
@@ -19,8 +17,6 @@ import {loadUser} from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 //private route
 import PrivateRoute from './components/routing/PrivateRoute';
-
-//import { isMobile } from 'react-device-detect';
 
 
 if (localStorage.token){
@@ -34,11 +30,7 @@ function App(props) {
   useEffect(()=>{
     store.dispatch(loadUser());
   },[]);//basically a componentDidMount the '[]' parameter to ensure that it runs only once
-//  if (isMobile) {
- //   return <Mobile/>
-//}
-return (
- 
+  return (
     <Provider store= {store}>
     <Router>
     <Fragment>
