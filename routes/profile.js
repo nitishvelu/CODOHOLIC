@@ -33,6 +33,7 @@ router.post('/',auth,async (req,res)=>{
         let langCode = req.body.lang;
     
         //adding to lang array based on lang and add accuracy to acc array
+        console.log(req.body.accuracy);
         switch (langCode)
         {
             case "java" :
@@ -54,11 +55,15 @@ router.post('/',auth,async (req,res)=>{
         };
         await Profile.findOne({user:req.user.id}, (err,res) => {
             if(err) throw err;
-            data.snippets = res.snippetsCompleted;
-            data.wpm = res.wpm;
+            if(res!=null)
+            {
+                data.snippets = res.snippetsCompleted;
+                data.wpm = res.wpm;
+            }
+
         });
         //calculating wpm 
-        var new_wpm = Math.round(((data.wpm*data.snippets + req.body.wpm)/(data.snippets + 1))* 10)/10;
+        var new_wpm = data.snippets == 0 ? Math.round(((data.wpm*data.snippets + req.body.wpm)/(data.snippets + 1))* 10)/10 : req.body.wpm;
         //writing wpm to db
         Profile.findOneAndUpdate({user:req.user.id},{
             wpm: new_wpm
@@ -74,6 +79,10 @@ router.post('/',auth,async (req,res)=>{
                 snippetsCompleted : 1
             }
         });
+
+        await Profile.findOne({user:req.user.id}),(err , res) => {
+            console.log(res);
+        }
 
     }
     catch(err)

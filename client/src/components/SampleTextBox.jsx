@@ -21,7 +21,7 @@ class SampleTextBox extends React.Component {
     switch (val)
     {
       case 'java':
-        this.sampleText = javasnippet;
+        this.sampleText = `asdfghjkl;`;
       break;
       case 'C':
         this.sampleText = `C language samples are yet to be converted by mehul`;
