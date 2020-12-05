@@ -10,7 +10,7 @@ import SampleTextBox from './components/SampleTextBox';
 import Profile from './components/Profile';
 import CreateProfile from './components/CreateProfile';
 import {Mobile} from './components/Mobile';
-
+import Leaderboard from './components/Leaderboard';
 
 //redux
 import {Provider} from 'react-redux';
@@ -50,6 +50,8 @@ return (
         <Route  path='/register' component={Register}/>
         <PrivateRoute  path='/profile' component={Profile}/>
         <PrivateRoute  path='/create-profile' component={CreateProfile}/>
+        <Route  path='/leaderboard' component={Leaderboard}/>
+
 
         <Route path='/' component={SampleTextBox}/>
     </Switch>

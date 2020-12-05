@@ -1,7 +1,7 @@
 import React from 'react';
 import './SampleTextBox.css';
 import Controller from './Controller';
-import javasnippet from '../data/data';
+// import javasnippet from '../data/data';
 
 
 
@@ -21,7 +21,7 @@ class SampleTextBox extends React.Component {
     switch (val)
     {
       case 'java':
-        this.sampleText = javasnippet;
+        this.sampleText = `1234567890asdfghjkl;`;
       break;
       case 'C':
         this.sampleText = `C language samples are yet to be converted by mehul`;

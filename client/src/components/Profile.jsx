@@ -25,7 +25,7 @@ const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
          <h1>Profile</h1>
          <h2>Welcome {user && user.name} !</h2>
          {profile !==null? 
-            profile.snippetsCompleted > 2 ? 
+            profile.snippetsCompleted > 4 ? 
          <Fragment>
              <img src={profile.user.avatar} alt='profile pic'/>
              <p>Average coding speed : {profile.wpm== null? 0:profile.wpm}WPM</p>
