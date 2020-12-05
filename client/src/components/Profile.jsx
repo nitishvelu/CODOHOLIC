@@ -25,6 +25,7 @@ const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
          <h1>Profile</h1>
          <h2>Welcome {user && user.name} !</h2>
          {profile !==null? 
+            profile.snippetsCompleted > 2 ? 
          <Fragment>
              <img src={profile.user.avatar} alt='profile pic'/>
              <p>Average coding speed : {profile.wpm== null? 0:profile.wpm}WPM</p>
@@ -36,6 +37,7 @@ const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
              <p>wanna change the preferred languages??</p>
             <Link to='/create-profile'>edit</Link>
          </Fragment>
+         :<Fragment> <p>please type more samples to see your data </p></Fragment>
          :<Fragment>
              <p>you have not set up the preferred languages please set it up</p>
             <Link to='/create-profile'>create profile</Link>

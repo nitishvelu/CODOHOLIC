@@ -5,31 +5,39 @@ const ProfileSchema = new mongoose.Schema({
         ref:'user'
     },
     wpm:{
-        type: Number
+        type: Number,
+        default: 0
     },
     accuracy:{
-        type: [Number]
+        type: [Number],
+        default : []
     },
     java:{
-        type: [Number]
+        type: [Number],
+        default : []
     },
     C:{
-        type: [Number]
+        type: [Number],
+        default : []
     },
     CPP :{
-        type: [Number]
+        type: [Number],
+        default : []
     },
     python: {
-        type: [Number]
+        type: [Number],
+        default : []
     },
     noOfCharacters:{
-        type: Number
+        type: Number,
+        default : 0
     },
     preferredLanguages:{
         type: [String]
     },
     snippetsCompleted:{
-        type: Number
+        type: Number,
+        default : 0
     }
 });
 
