@@ -1,7 +1,6 @@
 import React ,{Fragment,useEffect}from 'react';
 import './App.css';
 import Header from './components/Header';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';

@@ -22,25 +22,91 @@ router.get('/me',auth,async (req,res)=> {
 });
 
 
-//private create or update user profile
 
+
+
+//private create or update user profile
 router.post('/',auth,async (req,res)=>{
 
+    try
+    {
+        let langCode = req.body.lang;
+    
+        //adding to lang array based on lang and add accuracy to acc array
+        switch (langCode)
+        {
+            case "java" :
+            await Profile.findOneAndUpdate({user:req.user.id},{
+                $push : {
+                    java : req.body.wpm,
+                    accuracy : req.body.accuracy
+                }
+            });
+            // to be filled after data is put 
+            break;
+
+        }
+
+        //getting snippets and wpm for calculation
+        var data = {
+            snippets: 0,
+            wpm: 0
+        };
+        await Profile.findOne({user:req.user.id}, (err,res) => {
+            if(err) throw err;
+            data.snippets = res.snippetsCompleted;
+            data.wpm = res.wpm;
+        });
+        //calculating wpm 
+        var new_wpm = Math.round(((data.wpm*data.snippets + req.body.wpm)/(data.snippets + 1))* 10)/10;
+        //writing wpm to db
+        Profile.findOneAndUpdate({user:req.user.id},{
+            wpm: new_wpm
+        },(err) => {
+            if (err) throw err;
+        });
+        
+        //incrementing characters and snippets
+        let incVal = req.body.characters;
+        await Profile.updateOne({user:req.user.id},{
+            $inc : {
+                noOfCharacters : incVal,
+                snippetsCompleted : 1
+            }
+        });
+
+    }
+    catch(err)
+    {
+        console.log(err);
+        throw err;
+    }
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
     const {
-        wpm,
-        accuracy,
-        noOfCharacters,
+        //wpm,
+        // accuracy,
+        //noOfCharacters,
         preferredLanguages,
-        snippetsCompleted
+        //snippetsCompleted
     } = req.body;
 
     // Build profile object
     const profileFields={};
     profileFields.user=req.user.id;
-    if (wpm) profileFields.wpm =wpm;
-    if (accuracy) profileFields.accuracy =accuracy;
-    if (noOfCharacters) profileFields.noOfCharacters =noOfCharacters;
-    if (snippetsCompleted) profileFields.snippetsCompleted =snippetsCompleted;
+    //if (new_wpm) profileFields.wpm = new_wpm;
+    //if (accuracy) profileFields.accuracy =accuracy;
+    //if (noOfCharacters) profileFields.noOfCharacters =noOfCharacters;
+    //if (snippetsCompleted) profileFields.snippetsCompleted =snippetsCompleted;
     if (preferredLanguages) {
         profileFields.preferredLanguages =preferredLanguages;
     } 

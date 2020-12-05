@@ -1,18 +1,29 @@
+
 import React from 'react';
 import Results from './Results';
+import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {createProfile} from '../actions/profile'
 import FingerGuide from './FingerGuide';
+import {getCurrentProfile} from '../actions/profile';
+import auth from '../reducers/auth';
+
+
 export var userResults = {
-  speed: 0,
+  wpm: 0,
   accuracy: 0,
   errors: 0,
   elapsedTime : 0,
   words: 0,
+  characters: 0,
+  lang: 'java'
 }
 
 
 
 
-export class Controller extends React.Component {
+class Controller extends React.Component {
     constructor(props)
     {
       super(props);
@@ -22,6 +33,7 @@ export class Controller extends React.Component {
         ready: false,
       };
       this.startTime = 0;
+
       
       
     }
@@ -34,6 +46,7 @@ export class Controller extends React.Component {
         data: false,
         sampleIndex: 0,
       })
+     
 
       this.div = document.getElementById('controller');
       //adding event listeners
@@ -71,6 +84,14 @@ export class Controller extends React.Component {
         }
 
       }
+
+
+
+      writeData = () => {
+        this.props.createProfile(userResults,this.props.history,true);
+        console.log(`${userResults}`);
+
+    }
         
   
 
@@ -116,7 +137,6 @@ export class Controller extends React.Component {
           {
             ele.parentNode.scrollTop = ele.offsetTop - ele.parentNode.offsetTop;
           }
-            // ele.scrollIntoView(true);
         }
 
 
@@ -187,10 +207,18 @@ export class Controller extends React.Component {
       
       userResults.elapsedTime = (new Date() - this.startTime) / 1000;
       userResults.words = (this.props.sampleText.length - 1)/5;
-      userResults.speed = Math.round(userResults.words/(userResults.elapsedTime/60));
+      userResults.wpm = Math.round(userResults.words/(userResults.elapsedTime/60));
       userResults.accuracy = Math.round(this.props.sampleText.length / (this.props.sampleText.length + userResults.errors)*100);
-    
-      console.log(`${JSON.stringify(userResults)}`);
+      userResults.characters = this.props.sampleText.length;
+      userResults.lang = this.props.lang;
+      console.log(userResults.lang);
+
+      // put true to make it work log in to see
+      // this.props.profile.profile not working
+      if(true){
+        console.log('writing data..');
+        this.writeData();
+        }
    
      }
   
@@ -208,4 +236,25 @@ export class Controller extends React.Component {
         );
       }
   }
+
+
+  Controller.propTypes = {
+    createProfile: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired
+
+};
+const mapStateToProps= state =>({
+  auth: state.auth,
+  profile: state.profile
+});
   
+  export default connect(mapStateToProps,{createProfile,getCurrentProfile})(withRouter(Controller));//for history object
+
+
+
+
+
+
+
+

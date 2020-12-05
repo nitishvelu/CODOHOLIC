@@ -8,7 +8,19 @@ const ProfileSchema = new mongoose.Schema({
         type: Number
     },
     accuracy:{
-        type: Number
+        type: [Number]
+    },
+    java:{
+        type: [Number]
+    },
+    C:{
+        type: [Number]
+    },
+    CPP :{
+        type: [Number]
+    },
+    python: {
+        type: [Number]
     },
     noOfCharacters:{
         type: Number

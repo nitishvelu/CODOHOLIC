@@ -39,7 +39,7 @@ class Results extends React.Component {
         {
             return (
             <div style={style}>
-                Speed: {this.props.userResults.speed}WPM<br/>
+                Speed: {this.props.userResults.wpm}WPM<br/>
                 Errors: {this.props.userResults.errors}<br/>
                 Accuracy: {this.props.userResults.accuracy}%<br/>
                 Time: {Math.round(this.props.userResults.elapsedTime)} seconds<br/>
