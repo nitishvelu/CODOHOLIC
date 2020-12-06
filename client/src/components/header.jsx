@@ -11,8 +11,8 @@ const stylesheet = {
     title: {
         fontFamily: 'monospace',
         fontSize: 25,
-        textDecoration: 'none', 
-        color: 'white' 
+        textDecoration: 'none',
+        color: 'white'
     },
     header: {
         background: colors.headerGradient,
@@ -38,10 +38,10 @@ class Header extends React.Component {
             <div >
             <header style = {stylesheet.header}>
                 <div style={{flexDirection:'row', display: "flex", alignItems: 'center'}}>
-                    <img 
+                    <img
                     style = {stylesheet.logo}
-                    id = 'logo' 
-                    src={logo} 
+                    id = 'logo'
+                    src={logo}
                     alt="logo"
                     />
                     <Link to='/' style = {stylesheet.title}>Codoholic</Link>
@@ -54,3 +54,4 @@ class Header extends React.Component {
 }
 
 export default Header;
+
