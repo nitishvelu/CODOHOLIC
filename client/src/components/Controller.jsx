@@ -7,7 +7,6 @@ import {connect} from 'react-redux';
 import {createProfile} from '../actions/profile'
 import FingerGuide from './FingerGuide';
 import {getCurrentProfile} from '../actions/profile';
-import auth from '../reducers/auth';
 import snippet from '../data/data';
 import './SampleTextBox.css';
 
@@ -45,7 +44,7 @@ class Controller extends React.Component {
       switch (val)
       {
         case 'java':
-          this.sampleText = `asdfghjkl;`//snippet.java;
+          this.sampleText = snippet.java;
         break;
         case 'C':
           this.sampleText = snippet.c;

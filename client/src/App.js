@@ -1,4 +1,4 @@
-import React ,{Fragment,useEffect}from 'react';
+import React ,{useEffect}from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -6,7 +6,6 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import {BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import Alert from './components/auth/Alert'
-import SampleTextBox from './components/SampleTextBox';
 import Profile from './components/Profile';
 import CreateProfile from './components/CreateProfile';
 import {Mobile} from './components/Mobile';
