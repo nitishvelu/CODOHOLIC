@@ -1,5 +1,5 @@
 const lang = {
-  java: [
+  javalang: [
     `public class AddTwoNumbers {
         public static void main(String[] args) {
            int num1 = 5, num2 = 15, sum;
@@ -669,20 +669,946 @@ const lang = {
                 }  
                 }`,
   ],
-  clang: [`int josephus(List* cll, int k)
+  clang: [` k if it has excedded the value greater then the lenght off the singly circular linked list
+  k = k- cll->length;
+position_delete(cll,k);int josephus(List* cll, int k)
+{
+while(cll->length != 1)  //condition to check that only one node is present in the singly circular linked list 
+{
+k = k+1;
+if(k>=(cll->length)) //to reduce
+}
+return (cll->head->data);
+}`,`void heap_print(heap *my_heap)
+{
+  while(heap_get_size(my_heap) != 0) {
+    printf("%d\n", heap_get_min(my_heap));
+    heap_remove(my_heap);
+  }
+
+}`,`static Node* create_Node(int data, Node* link)
+{
+ Node* new = (Node*)malloc(sizeof(Node));
+   new->link = NULL;
+   new->data = data;
+ return new;
+}`,`void list_initialize(List* ptr_list) 
+{
+  ptr_list->head=NULL;
+  ptr_list->number_of_Nodes=0;
+}`,`void list_insert_front(List* ptr_list, int data) 
+{
+  Node* new = create_Node(data,ptr_list->head);
+  if(ptr_list->head==NULL)
   {
-    while(cll->length != 1)  //condition to check that only one node is present in the singly circular linked list 
+    ptr_list->head=new;
+  }
+  else
+  {
+    new->link=ptr_list->head;
+    ptr_list->head=new;	
+  }	
+  ptr_list->number_of_Nodes++;
+}`,`const int Node_get_data(Node *Node_ptr) 
+{
+if (Node_ptr!=NULL)
+  {
+    return Node_ptr->data;
+  }
+else
+  return;	
+}`,`void list_delete_front(List* ptr_list) 
+{
+   if(ptr_list->head==NULL)
     {
-      k = k+1;
-      if(k>=(cll->length)) //to reduce k if it has excedded the value greater then the lenght off the singly circular linked list
-        k = k- cll->length;
-      position_delete(cll,k);
+        return ;
     }
-    return (cll->head->data);
-  }`,``], // add stuff here it wont take long
+    Node *t=ptr_list->head;
+    ptr_list->head=t->link;
+    free(t);
+    ptr_list->number_of_Nodes--;
+}`,`void list_destroy(List* ptr_list) 
+{
+  Node *p = ptr_list->head;
+  Node *q = NULL;
+  for(int i=0;i<ptr_list->number_of_Nodes;i++)
+    {
+    q = p;
+    p = p->link;
+    free(q);
+  }
+  
+    free(ptr_list);
+}`,`void List_insert_front(List* ptr_List, int data) 
+{
+  Node* new = create_Node(data,ptr_List->head);
+  if(ptr_List->head==NULL)
+  {
+    ptr_List->head=new;
+  }
+  else
+  {
+    new->link=ptr_List->head;
+    ptr_List->head=new;	
+  }	
+  ptr_List->number_of_Nodes++;
+}`,`void List_delete_front(List* ptr_List)
+{
+  if(ptr_List->head==NULL)
+    {
+        return ;
+    }
+    Node *t=ptr_List->head;
+    ptr_List->head=t->link;
+    free(t);
+    ptr_List->number_of_Nodes--;
+}`,`stack* stack_initialize(int size)
+{
+    stack *stack = (stack*)malloc(sizeof(stack));
+    stack->top = -1;
+    stack->arr = (int *)malloc(sizeof(int)*size);
+    return stack;
+}`,`void stack_push(stack *ptr_stack, int key)
+{
+    ptr_stack->top++;
+    ptr_stack->arr[ptr_stack->top] = key;
+}`,`void stack_pop(stack *ptr_stack)
+{
+    if(ptr_stack->top == -1)
+        return;
+    ptr_stack->top--;
+}`,`int stack_is_empty(stack *ptr_stack)
+{
+    if(ptr_stack->top == -1)
+        return 1;
+    return 0;
+}`,`  int Prec(char ch) 
+{ 
+    switch (ch) 
+    { 
+    case '+': 
+    case '-': 
+        return 1; 
+
+    case '*': 
+    case '/': 
+        return 2; 
+
+    case '^': 
+        return 3; 
+    } 
+    return -1; 
+} `,`void list_insert_rear(List *ptr_list, int id, int time)
+{
+   // Create a new  node 
+    node* temp = create_node(id,time,ptr_list->head); 
+  
+    // If list is empty, then new node is head and tail both 
+    if (ptr_list->tail == NULL) { 
+        ptr_list->head  = temp; 
+        ptr_list->tail= temp; 
+    } 
+  else
+   { // Add the new node at the end of queue and change tail 
+    ptr_list->tail->link = temp; 
+    ptr_list->tail = temp;
+  }
+  ptr_list->number_of_nodes++;
+}`,`void queue_peek(Queue *ptr)
+{
+  if (queue_is_empty(ptr) == 0)
+  {
+    printf("%d %d\n",node_get_id(ptr->ptr_list->head),node_get_time(ptr->ptr_list->head));	
+  }
+  else 
+    printf("Empty Queue\n");
+    
+}`,`  if (c == 2) {
+  printf("n is a Prime number");
+  }
+  else {
+  printf("n is not a Prime number");
+  }`,`if(string[i]=='('|| string[i]=='{' || string[i]=='[')
+  {
+      Stack_push(&stack,string[i]);
+      continue;
+  }
+  else if(string[i]==')' || string[i]=='}' || string[i]==']')
+  {
+     if(Stack_is_empty(&stack))
+        return 0;
+     else if((Stack_peek(&stack)=='(' && string[i]==')') || (Stack_peek(&stack)=='{' && string[i]=='}') || (Stack_peek(&stack)=='[' && string[i]==']'))
+        Stack_pop(&stack);        
+     else 
+       return 0;
+    
+  }`,`const int Stack_peek(Stack *ptr_Stack) 
+  {
+    return Node_get_data(ptr_Stack->ptr_list->head);
+  }`,`if(Stack_is_empty(&stack))
+  return 1;
+  else
+  return 0;
+  Stack_destroy(&stack);','void tree_destroy(Tree *t)
+  {
+      destroy(t->root);
+  }`,`if(tempv==tree->root) 
+  {
+      while(tempv->right!=NULL) 
+      {
+          tempv=tempv->right;
+      }
+      printfun(tempv->data);
+  }
+  while(tempv->left!=NULL) 
+  {
+     tempv=inorder_predecessor(tempv);
+      printfun(tempv->data);
+  }`,`void stack_push(Stack *ptr_stack, int key)
+  {
+    List_insert_front(ptr_stack->ptr_List,key);
+  }`,`void stack_pop(stack *ptr_stack)
+  {
+      if(ptr_stack->top == -1)
+          return;
+      ptr_stack->top--;
+  }`,`void stack_push(stack *ptr_stack, int key)
+  {
+      ptr_stack->top++;
+      ptr_stack->arr[ptr_stack->top] = key;
+  }`,`HashTable *create_table(int size)
+  {
+      //TODO
+      HashTable *h;
+      h=(HashTable*)malloc(sizeof(HashTable));
+      h->size=size;
+      h->table=(int*)malloc(size*sizeof(int));
+       for(int i=0;i<h->size;i++){
+              h->table[i]=-1;
+      }
+      return h;
+  
+  }`,`int search(HashTable *htable, int element)
+  {
+      //TODO
+      for(int i=0;i<htable->size;i++){
+          if(htable->table[i]==element){
+              return 1;
+          }
+      }
+      return 0;
+  }`,`int search(HashTable *htable, int element)
+  {
+      //TODO
+      for(int i=0;i<htable->size;i++){
+          if(htable->table[i]==element){
+              return 1;
+          }
+      }
+      return 0;
+  }`,`void delete (HashTable *htable, int element)
+  {
+      //TODO
+          if(htable->table[i]!=-1&&htable->table[i]==element){
+              htable->table[i]=-1;
+          }
+      }
+  }`,`for(int i=len-1 ; i>=0 ; i--)
+  {	
+   new_node=(struct Node *)malloc(sizeof(struct Node));
+   new_node->data=a[i];
+   new_node->left=new_node->right=new_node->prev=NULL;
+   if(root==NULL)
+   {
+     root=new_node;
+     cur=par=root;
+   }`,`case 1:
+   /* Insert elements */ 
+     scanf("%d", &element);
+     if(!heap_insert(my_heap, element))
+       printf("OVERFLOW\n");
+   break;
+   ','case 2:
+   /* Print elements in sorted order, and empties the heap. */
+   heap_print(my_heap);		
+   heap_destruct(my_heap);
+   loop = 0;
+   break;
+  `,`for(int i=0; i<n ; i++)
+  {
+    if(graph[tempv][i] == 1 && visit[i] == 0)
+    {
+      if(i == v)
+      {
+        is_list = 1;
+        return is_list;
+      }
+      else
+      {
+        en++;
+        visit_queue[en] = i;
+        visit[i] = 1;
+      }
+    }`,`	for(int i=0; i<n;i++)
+    {
+      visit_queue[i] = -1;
+      visit[i] = 0;
+    }
+  `,`void stack_pop(stack *ptr_stack)
+  {
+      if(ptr_stack->top == -1)
+          return;
+      ptr_stack->top--;
+  }`,`const int Stack_peek(Stack *ptr_Stack) 
+  {
+    return Node_get_data(ptr_Stack->ptr_list->head);
+  }`,`int Prec(char ch) 
+  { 
+      switch (ch) const int Stack_peek(Stack *ptr_Stack) 
+{
+	return Node_get_data(ptr_Stack->ptr_list->head);
+}
+      { 
+      case '+': 
+      case '-': 
+          return 1; 
+  
+      case '*': 
+      case '/': 
+          return 2; 
+  
+      case '^': 
+          return 3; 
+      } 
+      return -1; 
+  }`,`void stack_pop(stack *ptr_stack)
+  {
+      if(ptr_stack->top == -1)
+          return;
+      ptr_stack->top--;
+  }`,`void Stack_destroy(Stack *ptr_Stack)
+  {
+   list_destroy(ptr_Stack->ptr_list);
+ }`,`Node *inorder_predecessor(Node *ptr)
+ {
+    if(ptr->leftThread!=0) 
+    {
+        ptr=ptr->left;
+        return ptr;
+    }
+    else 
+    {
+        return ptr->left;
+    }
+ }`,`if(data < current->data)
+ {
+   current->leftThread=1;
+   tempv->left=current->left;
+   tempv->right=current;
+   current->left=tempv;
+ }
+ else {
+   current->rightThread=1;
+   tempv->right=current->right;
+   tempv->left=current;
+   current->right=tempv;
+ }`,`void freeTree(Node *root)
+ {
+    if(root==NULL)
+     return;
+   freeTree(root->left);
+   freeTree(root->right);
+   freeTree(root->prev);
+   free(root);
+ }`,`void postorder(Node *root)
+ {
+    if(root!=NULL)
+    {
+     postorder(root->left);
+      postorder(root->right);
+      printf("%c",root->data);
+    } 
+ }
+ `,`void preorder(Node *root)
+ {
+   if(root!=NULL)
+    {
+     printf("%c",root->data);
+     preorder(root->left);
+     preorder(root->right);
+    }
+    
+ }
+ `,`#include<stdio.h>
+ main()
+ {
+ /* variable definition and initialization */   
+     char stringArray[100];
+     printf("Please write something: \n");
+     scanf("%s", stringArray);  
+     printf("You enter the string %s\n", stringArray);
+     return 0; 
+ }`,`void queue_peek(Queue *ptr)
+ {
+   if (queue_is_empty(ptr) == 0)
+   {
+     printf("%d %d\n",node_get_id(ptr->ptr_list->head),node_get_time(ptr->ptr_list->head));	
+   }
+   else 
+     printf("Empty Queue\n");
+     
+ }
+ `,`int stack_is_empty(stack *ptr_stack)
+ {
+     if(ptr_stack->top == -1)
+         return 1;
+     return 0;
+ }`], // add stuff here it wont take long
+  cpplang: [`int main() {
+    cout << "Hello World!";
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    cout << "Hello World!";
+    cout << "I am learning C++";
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    cout << "Hello World!" << endl;
+    cout << "I am learning C++";
+    return 0;
+  }`,`int myNum = 15;  // myNum is 15
+  myNum = 10;  // Now myNum is 10
+  cout << myNum;  // Outputs 10','int main() {
+    int x = 5, y = 6, z = 50;  
+    cout << x + y + z;
+    return 0;
+  }`,`int main() {
+    // Good name
+    int minutesPerHour = 60;
+    // OK, but not so easy to understand what m actually is
+    int m = 60;
+    cout << minutesPerHour << "\n";
+    cout << m;
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    const int myNum = 15;
+    myNum = 10;
+    cout << myNum;
+    return 0;
+  }`,`int main() {
+    int x;
+    cout << "Type a number: "; // Type a number and press enter
+    cin >> x; // Get user input from the keyboard
+    cout << "Your number is: " << x;
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main () {
+    int myNum = 1000;
+    cout << myNum;
+    return 0;
+  }`,`int main () {
+    float myNum = 5.75;
+    cout << myNum;
+    return 0;
+  }`,`int main () {
+    double myNum = 19.99;
+    cout << myNum;
+    return 0;
+  }
+  `,`int main () {
+    float f1 = 35e3;
+    double d1 = 12E4;
+    cout << f1 << "\n";
+    cout << d1;
+    return 0;
+  }`,`int main() {
+    bool isCodingFun = true;
+    bool isFishTasty = false;
+    cout << isCodingFun << "\n";
+    cout << isFishTasty;
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main () {
+    char myGrade = 'B';
+    cout << myGrade;
+    return 0;
+  }`,`int main () {
+    char a = 65, b = 66, c = 67;
+    cout << a;
+    cout << b;
+    cout << c;
+    return 0;
+  }
+  `,`int main () {
+    char a = 65, b = 66, c = 67;
+    cout << a;
+    cout << b;
+    cout << c;
+    return 0;
+  }
+  `,`#include <iostream>
+  using namespace std;
+  int main() {
+    int x = 100 + 50;
+    cout << x;
+    return 0;
+  }`,`int main() {
+    int sum1 = 100 + 50;        // 150 (100 + 50)
+    int sum2 = sum1 + 250;      // 400 (150 + 250)
+    int sum3 = sum2 + sum2;     // 800 (400 + 400)
+    cout << sum1 << "\n";
+    cout << sum2 << "\n";
+    cout << sum3;
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    int x = 10;
+    cout << x;
+    return 0;
+  }
+  `,`#include <iostream>
+  using namespace std;
+  int main() {
+    int x = 5;
+    x >>= 3;
+    cout << x;
+    return 0;
+  }
+  `,`#include <iostream>
+  using namespace std;
+  int main() {
+    int x = 5;
+    x &= 3;
+    cout << x;
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    int x = 5;
+    x |= 3;
+    cout << x;
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    int x = 5;
+    int y = 3;
+    cout << (x >= y); // returns 1 (true) because five is greater than, or equal, to 3
+    return 0;
+  }`,`int main() {
+    int x = 5;
+    int y = 3;
+    cout << (x > 3 && x < 10); // returns true (1) because 5 is greater than 3 AND 5 is less than 10
+    return 0;
+  }
+  `,`int main() {
+    int x = 5;
+    int y = 3;
+    cout << (x > 3 || x < 4); // returns true (1) because one of the conditions are true (5 is greater than 3, but 5 is not less than 4)
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    int x = 5;
+    int y = 3;
+    cout << (!(x > 3 && x < 10)); // returns false (0) because ! (not) is used to reverse the result
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    cout << min(5, 10);
+    return 0;
+  }`,`#include <iostream>
+  #include <cmath>
+  using namespace std;
+  int main() {
+    cout << sqrt(64) << "\n";
+    cout << round(2.6) << "\n";
+    cout << log(2) << "\n";
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    bool isCodingFun = true;
+    bool isFishTasty = false;
+    cout << isCodingFun << "\n";
+    cout << isFishTasty;
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    int x = 10;
+    int y = 9;
+    cout << (x > y);
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    int x = 20;
+    int y = 18;
+    if (x > y) {
+      cout << "x is greater than y";
+    }  
+    return 0;
+  }`,`int main() {
+    int time = 22;
+    if (time < 10) {
+      cout << "Good morning.";
+    } else if (time < 20) {
+      cout << "Good day.";
+    } else {
+      cout << "Good evening.";
+    }
+    return 0;
+  }`,`#include <iostream>
+  #include <string>
+  using namespace std;
+  int main() {
+    int time = 20;
+    string result = (time < 18) ? "Good day." : "Good evening.";
+    cout << result;
+    return 0;
+  }`,`int main() {
+    int day = 4;
+    switch (day) {
+      case 6:
+        cout << "Today is Saturday";
+        break;
+      case 7:
+        cout << "Today is Sunday";
+        break;
+      default:
+        cout << "Looking forward to the Weekend";
+    }
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    int i = 0;
+    while (i < 5) {
+      cout << i << "\n";
+      i++;
+    }
+    return 0;
+  }`,`int main() {
+    int x;
+    cout << "Type a number: "; // Type a number and press enter
+    cin >> x; // Get user input from the keyboard
+    cout << "Your number is: " << x;
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    int x = 5, y = 6, z = 50;  
+    cout << x + y + z;
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    cout << "Hello World!" << endl;
+    cout << "I am learning C++";
+    return 0;
+  }`,`int main() {
+    cout << "Hello World!";
+    return 0;
+  }','int main () {
+    char a = 65, b = 66, c = 67;
+    cout << a;
+    cout << b;
+    cout << c;
+    return 0;
+  }
+  `,`#include <iostream>
+  using namespace std;
+  int main() {
+    bool isCodingFun = true;
+    bool isFishTasty = false;
+    cout << isCodingFun << "\n";
+    cout << isFishTasty;
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    int i = 0;
+    do {
+      cout << i << "\n";
+      i++;
+    }
+    while (i < 5);
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    for (int i = 0; i < 5; i++) {
+      cout << i << "\n";
+    }
+    return 0;
+  }`,`#include <iostream>
+  using namespace std;
+  int main() {
+    for (int i = 0; i < 10; i++) {
+      if (i == 4) {
+        continue;
+      }
+      cout << i << "\n";
+    }   
+    return 0;
+  }`,`int main() {
+    int i = 0;
+    while (i < 10) {
+      cout << i << "\n";
+      i++;
+      if (i == 4) {
+        break;
+      }
+    } 
+    return 0;
+  }`,`#include <iostream>
+  #include <string>
+  using namespace std;
+  int main() {
+    string cars[4] = {"Volvo", "BMW", "Ford", "Mazda"};
+    cars[0] = "Opel";
+    cout << cars[0];
+    return 0;
+  }`,`#include <iostream>
+  #include <string>
+  using namespace std;
+  int main() {
+    string cars[4] = {"Volvo", "BMW", "Ford", "Mazda"};
+    for(int i = 0; i < 4; i++) {
+      cout << i << ": " << cars[i] << "\n";
+    }
+    return 0;
+  }`,`int main() {
+    string food = "Pizza";
+    string &meal = food;
+    cout << food << "\n";
+    cout << meal << "\n";
+    return 0;
+  }`,`#include <iostream>
+  #include <string>
+  using namespace std;
+  
+  int main() {
+    string food = "Pizza";
+    cout << &food;
+    return 0;
+  }
+  `,`int main() {
+    string food = "Pizza";  // Variable declaration
+    string* ptr = &food;    // Pointer declaration
+    // Reference: Output the memory address of food with the pointer
+    cout << ptr << "\n";
+    // Dereference: Output the value of food with the pointer
+    cout << *ptr << "\n";
+    return 0;
+  }
+  `],
+  pythonlang: [`x = 5
+  print(type(x)) `,`x = dict(name="John", age=36)
+  #display x:
+  print(x)
+  #display the data type of x:
+  print(type(x)) 
+  `,`x = bytes(5)
+  #display x:
+  print(x)
+  #display the data type of x:
+  print(type(x))`,`x = frozenset(("apple", "banana", "cherry"))
+  #display x:
+  print(x)
+  #display the data type of x:
+  print(type(x)`,`x = memoryview(bytes(5))
+  #display x:
+  print(x)
+  #display the data type of x:
+  print(type(x)) 
+  `,` x =1
+  y = 2.8
+  z = 1j
+  print(type(x))
+  print(type(y))
+  print(type(z))`,`thistuple = ("apple", "banana", "cherry")
+  print(thistuple)','thistuple = ("apple",)
+  print(type(thistuple))
+  #NOT a tuple
+  thistuple = ("apple")
+  print(type(thistuple))`,`thisdict =	{
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+  }
+  print(thisdict)`,`thisdict = {
+    "brand": "Ford",
+    "electric": False,
+    "year": 1964,
+    "colors": ["red", "white", "blue"]
+  }
+  print(thisdict)`,`myfamily = {
+    "child1" : {
+      "name" : "Emil",
+      "year" : 2004
+    },
+    "child2" : {
+      "name" : "Tobias",
+      "year" : 2007
+    },
+    "child3" : {
+      "name" : "Linus",
+      "year" : 2011
+    }
+  }
+  print(myfamily)`,`a = 33
+  b = 200
+  if b > a:
+  print("b is greater than a")`,`a = 200
+  b = 33
+  if b > a:
+    print("b is greater than a")
+  elif a == b:
+    print("a and b are equal")
+  else:
+    print("a is greater than b")`,`i = 1
+    while i < 6:
+      print(i)
+      i += 1
+    else:
+      print("i is no longer less than 6")','fruits = ["apple", "banana", "cherry"]
+      for x in fruits:
+        print(x) 
+        if x == "banana":
+          break`,`fruits = ["apple", "banana", "cherry"]
+          for x in fruits:
+            if x == "banana":
+              continue
+            print(x)`,`adj = ["red", "big", "tasty"]
+            fruits = ["apple", "banana", "cherry"]   
+            for x in adj:
+              for y in fruits:
+                print(x, y)`,`def my_function():
+                print("Hello from a function")
+              my_function()`,`print(fname + " " + lname)
+              my_function("Emil", "Refsnes")`,`def my_function(country = "Norway"):
+              print("I am from " + country;
+            my_function("Sweden")
+            my_function("India")
+            my_function()
+            my_function("Brazil")`,`def myfunc(n):
+            return lambda a : a * n
+          mytripler = myfunc(3)
+          print(mytripler(11))`,`class Person:
+          def __init__(self, fname, lname):
+            self.firstname = fname
+            self.lastname = lname
+          def printname(self):
+            print(self.firstname, self.lastname)
+        #Use the Person class to create an object, and then execute the printname method:
+        x = Person("John", "Doe")
+        x.printname()`,`import mymodule
+        a = mymodule.person1["age"]
+        print(a)`,`import datetime
+        x = datetime.datetime.now()
+        print(x)`,`x = min(5, 10, 25)
+        y = max(5, 10, 25)
+        print(x)
+        print(y)`,`x = min(5, 10, 25)
+        y = max(5, 10, 25)
+        print(x)
+        print(y)`,`import math
+        x = math.ceil(1.4)
+        y = math.floor(1.4)
+        print(x) # returns 2
+        print(y) # returns 1`,`import re
+        txt = "The rain in Spain"
+        x = re.search("^The.*Spain$", txt)`,`import json
+        # some JSON:
+        x =  '{ "name":"John", "age":30, "city":"New York"}'
+        # parse x:
+        y = json.loads(x)
+        # the result is a Python dictionary:
+        print(y["age"])`,`try:
+        print(x)
+      except NameError:
+        print("Variable x is not defined")
+      except:
+        print("Something else went wrong")`,`username = raw_input("Enter username:")
+        print("Username is: " + username`,`f = open("demofile.txt", "r")
+        print(f.read())`,`f = open("demofile2.txt", "a")
+        f.write("Now the file has more content!")
+        f.close()
+        #open and read the file after the appending:
+        f = open("demofile2.txt", "r")
+        print(f.read())`,`import os
+        os.remove("demofile.txt")','import os
+        if os.path.exists("demofile.txt"):
+          os.remove("demofile.txt")
+        else:
+          print("The file does not exist")`,`import numpy
+          arr = numpy.array([1, 2, 3, 4, 5])
+          print(arr)`,`import numpy as np
+          arr = np.array([1, 2, 3, 4])
+          print(arr.dtype)`,`import numpy as np
+          arr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])
+          print(arr.shape)`,`import numpy as np
+          arr = np.array([[1, 2, 3], [4, 5, 6]])
+          for x in arr:
+            print(x)`,`import numpy as np
+            arr = np.array([41, 42, 43, 44])
+            x = [True, False, True, False]
+            newarr = arr[x]
+            print(newarr)`,`import numpy as np
+            arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+            newarr = arr.reshape(2, 3, 2)
+            print(newarr)`,`import numpy as np
+            arr = np.array([1, 2, 3, 4, 5])
+            x = arr.view()
+            x[0] = 31
+            print(arr)
+            print(x)`,`import numpy as np
+            arr = np.array([1, 2, 3, 4])
+            print(arr[2] + arr[3])`,`import numpy as np
+            arr1 = np.array([1, 2, 3])
+            arr2 = np.array([4, 5, 6])
+            arr = np.concatenate((arr1, arr2))
+            print(arr)`,`from numpy import random
+            import numpy as np
+            arr = np.array([1, 2, 3, 4, 5])
+            random.shuffle(arr)
+            print(arr)`,`from numpy import random
+            x = random.normal(size=(2, 3))
+            print(x)`,`from numpy import random
+            x = random.normal(loc=1, scale=2, size=(2, 3))
+            print(x)`,`from numpy import random
+            import matplotlib.pyplot as plt
+            import seaborn as sns
+            sns.distplot(random.uniform(size=1000), hist=False)
+            plt.show()`,`from numpy import random
+            x = random.multinomial(n=6, pvals=[1/6, 1/6, 1/6, 1/6, 1/6, 1/6])
+            print(x)`,`import numpy as np
+            arr = np.array([True, False, True])
+            print(np.sort(arr))`],
 };
 
-// needs to be modified for now its fine
 
-let index = Math.floor(Math.random() * lang.java.length);
-export default lang.java[index];
+let index_java = Math.floor(Math.random() * lang.javalang.length);
+let index_c = Math.floor(Math.random() * lang.clang.length);
+let index_cpp = Math.floor(Math.random() * lang.cpplang.length);
+let index_python = Math.floor(Math.random() * lang.pythonlang.length);
+
+var snippet =  {
+  java : lang.javalang[index_java],
+  c : lang.clang[index_c],
+  cpp : lang.cpplang[index_cpp],
+  python : lang.pythonlang[index_python]
+};
+
+export default snippet;

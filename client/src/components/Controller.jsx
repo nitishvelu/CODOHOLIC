@@ -17,7 +17,7 @@ export var userResults = {
   elapsedTime : 0,
   words: 0,
   characters: 0,
-  lang: 'java'
+  lang: ''
 }
 
 
@@ -181,7 +181,7 @@ class Controller extends React.Component {
         ready: true,
       })
       document.getElementById('sampBox').children[0].classList.add('activeSpan');
-      document.getElementById('controller').children[0].innerHTML = '';
+      document.getElementById('controller').children[0].style.display = 'none';
     }
   
      controllerHandleBlur = () => {
@@ -196,7 +196,7 @@ class Controller extends React.Component {
         ready: false,
       });
 
-      document.getElementById('controller').children[0].innerHTML = 'Click to start';
+      document.getElementById('controller').children[0].style.display = 'block';
       userResults.errors = 0;
 
      }
@@ -227,8 +227,16 @@ class Controller extends React.Component {
         
         return (
           <div key = 'res' id='result'>
-        <div id = 'controller' tabIndex = '0' style = { {backgroundColor : '#28abb9', fontFamily: 'monospace', fontSize: 22} } >
-          <center>Click to start</center>
+        <div id = 'controller' tabIndex = '0' style = { {
+          backgroundColor: '#273e59',
+          fontFamily: 'monospace',
+          fontSize: 22,
+          color: 'white',
+        } } >
+          <center style={{
+                      padding: 10,
+
+          }}>Click to start</center>
         </div>
           <Results userResults = {userResults} data = {this.state.data}/> 
           <FingerGuide letter={this.state.ready ? this.props.sampleText[this.state.sampleIndex]: '⎈' } />

@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './Navbar';
 import {Link} from 'react-router-dom';
-
+import colors from '../utils/colors'
 import logo from '../images/coding.svg';
 const stylesheet = {
     logo: {
@@ -15,12 +15,13 @@ const stylesheet = {
         color: 'white' 
     },
     header: {
-        backgroundColor: "#2d6187",
+        background: colors.headerGradient,
         top: 0,
         width: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        padding: 10
     }
 }
 

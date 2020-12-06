@@ -1,8 +1,7 @@
 ul {
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
+    margin: 0;
+    margin-right: 30px;
   }
   
   li {
@@ -11,12 +10,12 @@ ul {
   
   li a {
 	display: block;
-	color: white;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
   }
   
   li a:hover {
-	background-color: rgb(65 115 176);
+    background-color: rgb(0 0 0 / 16%);
+	font-weight: bold;
   }

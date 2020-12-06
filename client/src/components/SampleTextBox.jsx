@@ -1,7 +1,7 @@
 import React from 'react';
 import './SampleTextBox.css';
 import Controller from './Controller';
-// import javasnippet from '../data/data';
+import snippet from '../data/data';
 
 
 
@@ -21,19 +21,19 @@ class SampleTextBox extends React.Component {
     switch (val)
     {
       case 'java':
-        this.sampleText = `1234567890asdfghjkl;`;
+        this.sampleText = snippet.java;
       break;
       case 'C':
-        this.sampleText = `C language samples are yet to be converted by mehul`;
+        this.sampleText = snippet.c;
       break;
       case 'CPP':
-        this.sampleText = `C++ language samples are yet to be converted by mehul`;
+        this.sampleText = snippet.cpp;
       break;
       case 'python':
-        this.sampleText = `python and html are programming languages`;
+        this.sampleText = snippet.python;
       break;
       default:
-        this.sampleText = `1234567890`;
+        this.sampleText = snippet.java;
     }
     
     this.text = this.sampleText.replaceAll(/(\r\n|\n|\r)/gm,"⏎");

@@ -3,15 +3,16 @@ import React from 'react';
 
 var style = {
     footer: {
-        backgroundColor: '#2d6187',
+        backgroundColor: 'rgb(11 36 132)',
         width: '100%',
-        display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding : 11,
+        padding: 11,
         position: 'fixed',
         bottom: 0,
-        color:"white"
+        color: 'white',
+        textAlign: 'center',
+
     }
 }
 
@@ -28,7 +29,10 @@ class Footer extends React.Component {
     {
         return (
            <footer style = {style.footer}>
-               contact us
+               
+               <span>
+                   contact us
+                   </span>
            </footer>
         )
     }

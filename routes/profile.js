@@ -33,20 +33,53 @@ router.post('/',auth,async (req,res)=>{
         let langCode = req.body.lang;
     
         //adding to lang array based on lang and add accuracy to acc array
-        console.log(req.body.accuracy);
+        console.log(langCode);
         switch (langCode)
         {
             case "java" :
-            await Profile.findOneAndUpdate({user:req.user.id},{
-                $push : {
-                    java : req.body.wpm,
-                    accuracy : req.body.accuracy
-                }
-            });
-            // to be filled after data is put 
-            break;
+                await Profile.findOneAndUpdate({user:req.user.id},{
+                    $push : {
+                        java : req.body.wpm,
+                        accuracy : req.body.accuracy
+                    }
+                });
+                break;
 
-        }
+                case "C":
+                await Profile.findOneAndUpdate({user:req.user.id},{
+                    $push : {
+                        C : req.body.wpm,
+                        accuracy : req.body.accuracy
+                    }
+                    });
+                // to be filled after data is put
+                break;
+
+                case "CPP":
+                await Profile.findOneAndUpdate({user:req.user.id},{
+                    $push : {
+                        CPP : req.body.wpm,
+                        accuracy : req.body.accuracy
+                    }
+                    });
+                    // to be filled after data is put
+                break;
+                case "python":
+                await Profile.findOneAndUpdate({user:req.user.id},{
+                    $push : {
+                        python : req.body.wpm,
+                        accuracy : req.body.accuracy
+                    }
+                    });
+                    // to be filled after data is put
+                break;
+                default:
+                await Profile.findOneAndUpdate({user:req.user.id},{
+                    $push : {
+                        accuracy : req.body.accuracy
+                    }
+                    });
+            }
 
         //getting snippets and wpm for calculation
         var data = {
@@ -63,7 +96,7 @@ router.post('/',auth,async (req,res)=>{
 
         });
         //calculating wpm 
-        var new_wpm = data.snippets == 0 ? Math.round(((data.wpm*data.snippets + req.body.wpm)/(data.snippets + 1))* 10)/10 : req.body.wpm;
+        var new_wpm = Math.round(((data.wpm*data.snippets + req.body.wpm)/(data.snippets + 1))* 10)/10;
         //writing wpm to db
         Profile.findOneAndUpdate({user:req.user.id},{
             wpm: new_wpm
@@ -90,6 +123,11 @@ router.post('/',auth,async (req,res)=>{
         console.log(err);
         throw err;
     }
+
+    
+    
+    
+
 
     
     

@@ -53,18 +53,20 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../actions/auth';
 import './Navbar.css';
+import colors from '../utils/colors'
+
 
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const authLinks = (
-    <ul>
+    <ul >
       <li>
-        <Link to="/leaderboard">Leaderboard</Link>
+        <Link style={{color: colors.headerText}} to="/leaderboard">Leaderboard</Link>
       </li>
       <li>
-        <Link to="/profile">Profile</Link>
+        <Link style={{color: colors.headerText}} to="/profile">Profile</Link>
       </li>
       <li>
-        <a onClick={logout} href="#!">
+        <a style={{color: colors.headerText}} onClick={logout} href="#!">
           Logout
         </a>
       </li>
