@@ -84,9 +84,9 @@ const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
 <hr/>
              {profile.accuracy.length > 4 ? plotter(profile.accuracy, 'Accuracy') : <div />}
              {(profile.java.length > 4 )  ? plotter(profile.java, 'Java') : <div />}
-             {(profile.C.length > 4 )  ? plotter(profile.java, 'Java') : <div />}
-             {(profile.CPP.length > 4 )  ? plotter(profile.java, 'Java') : <div />}
-             {(profile.python.length > 4 )  ? plotter(profile.java, 'Java') : <div />}
+             {(profile.C.length > 4 )  ? plotter(profile.java, 'C') : <div />}
+             {(profile.CPP.length > 4 )  ? plotter(profile.java, 'C++') : <div />}
+             {(profile.python.length > 4 )  ? plotter(profile.java, 'Python') : <div />}
              
              
 

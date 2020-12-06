@@ -87,7 +87,7 @@ const Register = ({setAlert,register,isAuthenticated}) => {
         </div>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 
-        <button type="submit" >Login</button>
+        <button type="submit" >Register</button>
         <span style={{paddingLeft: 10}}>
         Already have an account? <Link to="/login">Sign In</Link>
       </span>

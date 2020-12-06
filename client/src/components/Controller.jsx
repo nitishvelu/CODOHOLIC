@@ -65,7 +65,6 @@ class Controller extends React.Component {
       this.arr = this.arr1.map((ele, index) => {
           if (this.text[index] === '⏎' )
           {
-          
             return (<span key={index} className='sampleText endOfLine'>⏎</span>)
           }
           return (<span key={index} className='sampleText'>{ele}</span>)
@@ -74,7 +73,7 @@ class Controller extends React.Component {
     }
     handleChange = (event) => {
       this.loadData(event.target.value)
-      this.setState({value: event.target.value});
+      this.setState({selectedLang: event.target.value});
     }
 
     componentDidMount()
@@ -250,7 +249,7 @@ class Controller extends React.Component {
       userResults.accuracy = Math.round(this.text.length / (this.text.length + userResults.errors)*100);
       userResults.characters = this.text.length;
       userResults.lang = this.state.selectedLang;
-      console.log(userResults.lang);
+      console.log(` in teh component - ${this.state.selectedLang}`)
 
       // put true to make it work log in to see
       // this.props.profile.profile not working
