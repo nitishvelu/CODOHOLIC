@@ -76,10 +76,10 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login" style = {{color: colors.headerText}}>Login</Link>
       </li>
       <li>
-        <Link to="/register">Register</Link>
+        <Link to="/register" style = {{color: colors.headerText}} >Register</Link>
       </li>
     </ul>
   );

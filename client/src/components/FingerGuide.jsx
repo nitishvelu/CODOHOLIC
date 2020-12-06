@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import svgimg from '../images/backup/alpha_hands.svg';
 
 const fingers = {
   lp : ['~','`','!','1','↹','q','a','z','^','&','*','(',")",'Q','A','Z',"_","+","{","}","|",":",`"`,'<',">","?",'Y','U','I','O','P','H','J','K','L','N','M'],
@@ -31,7 +32,9 @@ class FingerGuide extends React.Component {
       width: '50%',
       height: 'auto',
     }} > 
-                  <svg width= "50%" viewBox="-1400 -6 2000 2000"  xmlns="http://www.w3.org/2000/svg">
+    <img src = {svgimg} />
+
+                  {/* <svg width= "50%" viewBox="-1400 -6 2000 2000"  xmlns="http://www.w3.org/2000/svg">
             <g>
               <title>background</title>
               <rect fill="none" id="canvas_background" height="748.279" width="748.279" y="-1" x="-1"/>
@@ -150,7 +153,7 @@ class FingerGuide extends React.Component {
 
 
       </g>
-      </svg>
+      </svg> */}
 
     </span>
     </div>);
