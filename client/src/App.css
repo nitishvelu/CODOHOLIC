@@ -1,25 +1,23 @@
 
-body{
-  overflow: hidden;
-
-}
 .App {
   text-align: center;
   background-color: #FFFFFF;
 }
 
 .alert {
-  margin: 1em;
-  padding: 0.61em;
+  margin: 30px;
+  padding: 10px 20px;
   opacity: 0.9;
   color: #333;
-  border-radius: 4px;
+  border-radius: 2px;
+  position: absolute;
+  top: 80px;
 }
 
 
 
 .alert-danger {
-  background: rgb(226, 29, 29);
+  background:#700a0a;
   color: #fff;
 }
 

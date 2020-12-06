@@ -53,19 +53,17 @@ const Register = ({setAlert,register,isAuthenticated}) => {
     }
 
     return (
-        <Fragment>
+        <div style={{ width: 1000, margin: '0 auto',marginTop: 160, display: "flex", flexDirection:'column', justifyContent:'center', alignItems: 'center'}}>
             <h1>Sign Up</h1>
-      <p >Create Your Account</p>
       <form  onSubmit={e =>onSubmit(e)}>
         <div >
           <input type="text" placeholder="Name" name="name" value={name}onChange={e=> onChange(e)} />
         </div>
         <div >
           <input type="email" placeholder="Email Address" name="email"value={email}onChange={e=> onChange(e)}  />
-          <small
+          {/* <div
             >This site uses Gravatar so if you want a profile image, use a
-            Gravatar email</small
-          >
+            Gravatar email </div> */}
         </div>
         <div>
           <input
@@ -87,12 +85,16 @@ const Register = ({setAlert,register,isAuthenticated}) => {
             minLength="6"
           />
         </div>
-        <input type="submit"  value="Register" />
-      </form>
-      <p >
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+
+        <button type="submit" >Login</button>
+        <span style={{paddingLeft: 10}}>
         Already have an account? <Link to="/login">Sign In</Link>
-      </p>
-    </Fragment>
+      </span>
+        </div>
+      </form>
+
+    </div>
     );
 };
 

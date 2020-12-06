@@ -8,6 +8,8 @@ import {createProfile} from '../actions/profile'
 import FingerGuide from './FingerGuide';
 import {getCurrentProfile} from '../actions/profile';
 import auth from '../reducers/auth';
+import snippet from '../data/data';
+import './SampleTextBox.css';
 
 
 export var userResults = {
@@ -31,11 +33,49 @@ class Controller extends React.Component {
         sampleIndex : 0,
         data : false,
         ready: false,
+        selectedLang: 'java'
       };
       this.startTime = 0;
 
+      this.loadData(this.state.selectedLang);
+
       
+    }
+    loadData = (val) => {
+      switch (val)
+      {
+        case 'java':
+          this.sampleText = `asdfghjkl;`//snippet.java;
+        break;
+        case 'C':
+          this.sampleText = snippet.c;
+        break;
+        case 'CPP':
+          this.sampleText = snippet.cpp;
+        break;
+        case 'python':
+          this.sampleText = snippet.python;
+        break;
+        default:
+          this.sampleText = snippet.java;
+      }
       
+      this.text = this.sampleText.replaceAll(/(\r\n|\n|\r)/gm,"⏎");
+      this.text = this.text.replaceAll(/\s\s\s\s/gm,"↹");
+      this.arr1 = this.text.split('');
+      this.arr = this.arr1.map((ele, index) => {
+          if (this.text[index] === '⏎' )
+          {
+          
+            return (<span key={index} className='sampleText endOfLine'>⏎</span>)
+          }
+          return (<span key={index} className='sampleText'>{ele}</span>)
+          });
+        
+    }
+    handleChange = (event) => {
+      this.loadData(event.target.value)
+      this.setState({value: event.target.value});
     }
 
     componentDidMount()
@@ -100,7 +140,7 @@ class Controller extends React.Component {
     {
       // handle key event on the controller component
       event.preventDefault();
-      if((this.state.sampleIndex === this.props.sampleText.length - 1))
+      if((this.state.sampleIndex === this.text.length - 1))
         {
           // end of sample computing time
           this.ready = false;
@@ -126,7 +166,7 @@ class Controller extends React.Component {
         }
 
         //auto-scroller experimental
-        if (event.keyCode === 13 && this.props.sampleText.charCodeAt(this.state.sampleIndex) === 9166)
+        if (event.keyCode === 13 && this.text.charCodeAt(this.state.sampleIndex) === 9166)
         {
           let div = document.getElementById('sampBox')
 
@@ -141,13 +181,13 @@ class Controller extends React.Component {
 
 
         
-        console.log(` typed - ${String.fromCharCode(event.keyCode)} code - ${event.keyCode} \nExpected - ${this.props.sampleText[this.state.sampleIndex]}  code -  ${this.props.sampleText.charCodeAt(this.state.sampleIndex)}` );
+        console.log(` typed - ${String.fromCharCode(event.keyCode)} code - ${event.keyCode} \nExpected - ${this.text[this.state.sampleIndex]}  code -  ${this.text.charCodeAt(this.state.sampleIndex)}` );
       
       
       
-        if( (String.fromCharCode(event.keyCode) === this.props.sampleText[this.state.sampleIndex]) 
-              || (event.keyCode === 13 && this.props.sampleText.charCodeAt(this.state.sampleIndex) === 9166)
-              || (event.keyCode === 9 && this.props.sampleText.charCodeAt(this.state.sampleIndex) === 8633) )
+        if( (String.fromCharCode(event.keyCode) === this.text[this.state.sampleIndex]) 
+              || (event.keyCode === 13 && this.text.charCodeAt(this.state.sampleIndex) === 9166)
+              || (event.keyCode === 9 && this.text.charCodeAt(this.state.sampleIndex) === 8633) )
       {
 
         
@@ -206,11 +246,11 @@ class Controller extends React.Component {
      computeSampleSpeed = () => {
       
       userResults.elapsedTime = (new Date() - this.startTime) / 1000;
-      userResults.words = (this.props.sampleText.length - 1)/5;
+      userResults.words = (this.text.length - 1)/5;
       userResults.wpm = Math.round(userResults.words/(userResults.elapsedTime/60));
-      userResults.accuracy = Math.round(this.props.sampleText.length / (this.props.sampleText.length + userResults.errors)*100);
-      userResults.characters = this.props.sampleText.length;
-      userResults.lang = this.props.lang;
+      userResults.accuracy = Math.round(this.text.length / (this.text.length + userResults.errors)*100);
+      userResults.characters = this.text.length;
+      userResults.lang = this.state.selectedLang;
       console.log(userResults.lang);
 
       // put true to make it work log in to see
@@ -224,9 +264,26 @@ class Controller extends React.Component {
   
      render()
       {
+        if(this.state.data){
+          return (<Results userResults = {userResults} data = {this.state.data}/> )
+        }
+        
         
         return (
-          <div key = 'res' id='result'>
+          <div id = 'sampParent' >
+        <span id ="select-container">
+        <select value={this.state.value} onChange={this.handleChange} className='select-box'>
+          <option value ="java">Java</option>
+          <option value  ="C">C</option>
+          <option value="CPP">C++</option>
+          <option value="python">Python</option>
+        </select>
+        </span>
+
+      <div id = 'sampBox' >
+        {this.arr}
+      </div>
+      <div key = 'res' id='result'>
         <div id = 'controller' tabIndex = '0' style = { {
           backgroundColor: '#273e59',
           fontFamily: 'monospace',
@@ -238,9 +295,10 @@ class Controller extends React.Component {
 
           }}>Click to start</center>
         </div>
-          <Results userResults = {userResults} data = {this.state.data}/> 
-          <FingerGuide letter={this.state.ready ? this.props.sampleText[this.state.sampleIndex]: '⎈' } />
+          <FingerGuide letter={this.state.ready ? this.text[this.state.sampleIndex]: '⎈' } />
         </div>
+      </div>
+          
         );
       }
   }

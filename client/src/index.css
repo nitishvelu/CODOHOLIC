@@ -5,5 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
+  background-color: #212121;
+  overflow-x: hidden;
+  color: white
+}
+
+input {
+  padding: 10px;
+    min-width: 360px;
+    margin-bottom: 30px;
+}
+
+button {
+  color: black;
+    padding: 10px;
+    background-color: #086d82;
+    border: none;
+    min-width: 120px;
+    text-transform: UPPERCASE;
+    color: white;
+    font-weight: bold;
+}
+a {
+  color: blue;
+  text-decoration: none;
+}
+h1 {
+  text-transform: uppercase;
 }

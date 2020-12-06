@@ -21,6 +21,7 @@ import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
 
 import { isMobile } from 'react-device-detect';
+import Controller from './components/Controller';
 
 
 if (localStorage.token){
@@ -38,13 +39,12 @@ function App(props) {
     return <Mobile/>
 }
 return (
- 
+    <div>
+
     <Provider store= {store}>
     <Router>
-    <Fragment>
       <Header />
-      <section className='container'>
-      <Alert />
+      <div className='containevcr'>
     <Switch>
         <Route  path='/login' component={Login}/>
         <Route  path='/register' component={Register}/>
@@ -53,15 +53,17 @@ return (
         <Route  path='/leaderboard' component={Leaderboard}/>
 
 
-        <Route path='/' component={SampleTextBox}/>
+        <Route path='/' component={Controller}/>
     </Switch>
-    </section>
+      </div>
     
       <Footer />
 
-      </Fragment>
       </Router>
+      <Alert />
       </Provider>
+      </div>
+
   );
 }
 

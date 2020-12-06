@@ -1,12 +1,12 @@
 import React from 'react';
 
 const style = {
-    backgroundColor: '#28abb9',
+    backgroundColor:  '#053645',
     color: 'white',
-    border: '6px solid white',
     fontFamily: 'monospace',
     padding : 30,
     fontSize: 22,
+    lineHeight: '35px',
 }
 
 

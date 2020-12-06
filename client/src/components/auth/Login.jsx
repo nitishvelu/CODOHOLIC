@@ -24,9 +24,9 @@ const Login = ({login,isAuthenticated}) => {
       return<Redirect to='/'/>
     }
     return (
-        <Fragment>
+        <div style={{width: 1000, margin: '0 auto',marginTop: 160, display: "flex", flexDirection:'column', justifyContent:'center', alignItems: 'center'}}>
             <h1>Sign In</h1>
-      <p >Sign In To Your Account</p>
+      {/* <p >Sign In To Your Account</p> */}
       <form  onSubmit={e =>onSubmit(e)}>
        
         <div >
@@ -44,12 +44,18 @@ const Login = ({login,isAuthenticated}) => {
           />
         </div>
         
-        <input type="submit"  value="Login" />
-      </form>
-      <p >
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+
+        <button type="submit" >Login</button>
+        <span style={{paddingLeft: 10}}>
         Dont have an account? <Link to="/register">Sign Up</Link>
-      </p>
-    </Fragment>
+      </span>
+        </div>
+      </form>
+      {/* <p >
+        Dont have an account? <Link to="/register">Sign Up</Link>
+      </p> */}
+    </div>
     )
 }
 Login.propTypes={

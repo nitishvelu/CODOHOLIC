@@ -1,5 +1,5 @@
 import React from 'react';
-import svgimg from '../images/backup/alpha_hands.svg';
+
 
 const fingers = {
   lp : ['~','`','!','1','↹','q','a','z','^','&','*','(',")",'Q','A','Z',"_","+","{","}","|",":",`"`,'<',">","?",'Y','U','I','O','P','H','J','K','L','N','M'],
@@ -24,7 +24,7 @@ class FingerGuide extends React.Component {
   {
     const mainHandColor= "#999696";
     let fac = Math.random() < 0.5;
-    var highlight = '#cacaca';
+    var highlight = '#36ff00';
     //fingers.lp.includes(this.props.letter)
     return (
       <div>
@@ -33,15 +33,15 @@ class FingerGuide extends React.Component {
           width: 800,
           height: 500,
         }}> */}
-    <span className = 'leftHand' style={{
+    <span className = 'hands' style={{
       resize: 'horizontal',
       overflow: 'hidden',
-      width: '50%',
+      width: 'auto',
       height: 'auto',
     }} > 
     
 
-<svg width="100%" viewBox="-887 -15 2500 2500" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" viewBox="-900 -15 2500 500" xmlns="http://www.w3.org/2000/svg">
 <g>
  <title>background</title>
  <rect fill="none" id="canvas_background" height="482" width="720" y="-1" x="-1"/>
@@ -52,7 +52,7 @@ class FingerGuide extends React.Component {
   <path id="svg_2" fill={mainHandColor} d="m59.94531,288.25781l11.3125,-11.3125l58.88672,58.88672l-11.3125,11.3125l-58.88672,-58.88672zm0,0"/>
   <path id="svg_3" fill={mainHandColor} d="m295,400l0,80l-144,0l0,-80"/>
   <path id="left_han" fill="#346372" d="m303,400l-160,0c-17.67187,0 -32,-14.32812 -32,-32l0,-128l224,0l0,128c0,17.67188 -14.32812,32 -32,32zm0,0"/>
-  <path id="lt" fill={this.props.letter == ' ' && fac ? highlight : "#346372"} d="m79,328l-75.03125,-75.03125c-3.18359,-3.18359 -4.96875,-7.49609 -4.96875,-12l0,-8c0,-9.36719 7.60156,-16.96875 16.96875,-16.96875c4.50391,0 8.81641,1.78516 12,4.96875l51.03125,51.03125l0,56zm0,0"/>
+  <path id="lt" fill={this.props.letter === ' ' && fac ? highlight : "#346372"} d="m79,328l-75.03125,-75.03125c-3.18359,-3.18359 -4.96875,-7.49609 -4.96875,-12l0,-8c0,-9.36719 7.60156,-16.96875 16.96875,-16.96875c4.50391,0 8.81641,1.78516 12,4.96875l51.03125,51.03125l0,56zm0,0"/>
   <path id="li" fill={fingers.li.includes(this.props.letter) ? highlight : "#346372"} d="m127,32c-8.83984,0 -16,7.16016 -16,16l0,128l32,0l0,-128c0,-8.83984 -7.16016,-16 -16,-16zm0,0"/>
   <path id="lr" fill={fingers.lr.includes(this.props.letter) ? highlight : "#346372"} d="m255,32c-8.83984,0 -16,7.16016 -16,16l0,128l32,0l0,-128c0,-8.83984 -7.16016,-16 -16,-16zm0,0"/>
   <path id="lp" fill={fingers.lp.includes(this.props.letter) ? highlight : "#346372"} d="m319,80c-8.83984,0 -16,7.16016 -16,16l0,80l32,0l0,-80c0,-8.83984 -7.16016,-16 -16,-16zm0,0"/>
@@ -79,7 +79,7 @@ class FingerGuide extends React.Component {
    <path stroke="null" id="svg_57" fill={mainHandColor} d="m6305.30975,640.05935l11.3125,-11.3125l58.88672,58.88672l-11.3125,11.3125l-58.88672,-58.88672zm0,0"/>
    <path stroke="null" id="svg_58" fill={mainHandColor} d="m6540.36444,751.80154l0,80l-144,0l0,-80"/>
    <path stroke="null" id="left_han" fill="#346372" d="m6548.36444,751.80154l-160,0c-17.67187,0 -32,-14.32812 -32,-32l0,-128l224,0l0,128c0,17.67188 -14.32812,32 -32,32zm0,0"/>
-   <path stroke="null" id="rt" fill={this.props.letter == ' ' && !fac ? highlight : "#346372"} d="m6324.36444,679.80154l-75.03125,-75.03125c-3.18359,-3.18359 -4.96875,-7.49609 -4.96875,-12l0,-8c0,-9.36719 7.60156,-16.96875 16.96875,-16.96875c4.50391,0 8.81641,1.78516 12,4.96875l51.03125,51.03125l0,56zm0,0"/>
+   <path stroke="null" id="rt" fill={this.props.letter === ' ' && !fac ? highlight : "#346372"} d="m6324.36444,679.80154l-75.03125,-75.03125c-3.18359,-3.18359 -4.96875,-7.49609 -4.96875,-12l0,-8c0,-9.36719 7.60156,-16.96875 16.96875,-16.96875c4.50391,0 8.81641,1.78516 12,4.96875l51.03125,51.03125l0,56zm0,0"/>
    <path stroke="null" id="ri" fill={fingers.ri.includes(this.props.letter) ? highlight : "#346372"} d="m6372.36444,383.80154c-8.83984,0 -16,7.16016 -16,16l0,128l32,0l0,-128c0,-8.83984 -7.16016,-16 -16,-16zm0,0"/>
    <path stroke="null" id="rr" fill={fingers.rr.includes(this.props.letter) ? highlight : "#346372"} d="m6500.36444,383.80154c-8.83984,0 -16,7.16016 -16,16l0,128l32,0l0,-128c0,-8.83984 -7.16016,-16 -16,-16zm0,0"/>
    <path stroke="null" id="rp" fill={fingers.rp.includes(this.props.letter) ? highlight : "#346372"} d="m6564.36444,431.80154c-8.83984,0 -16,7.16016 -16,16l0,80l32,0l0,-80c0,-8.83984 -7.16016,-16 -16,-16zm0,0"/>

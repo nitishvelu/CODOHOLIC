@@ -3,7 +3,7 @@ import React from 'react';
 
 var style = {
     footer: {
-        backgroundColor: 'rgb(11 36 132)',
+        backgroundColor: '#020d2c',
         width: '100%',
         alignItems: 'center',
         justifyContent: 'space-between',
