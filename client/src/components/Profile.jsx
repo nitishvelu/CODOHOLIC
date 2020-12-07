@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {getCurrentProfile} from '../actions/profile';
 import Spinner from './Spinner';
 import {Line} from 'react-chartjs-2';
+import gif from '../images/kermit.gif';
 
 export const computeAverage  = arr => {
     console.log(arr);
@@ -30,7 +31,7 @@ var plotter = (arr,str) => {
             {
               label: str,
               data: arr,
-              backgroundColor: 'rgba(255, 159, 64, 0.2)',
+              backgroundColor: 'rgba(255, 159, 64, 0.1)',
               borderColor: 'rgba(255, 99, 132, 1)',
               borderWidth: 1,
             },
@@ -84,25 +85,44 @@ const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
 <hr/>
              {profile.accuracy.length > 4 ? plotter(profile.accuracy, 'Accuracy') : <div />}
              {(profile.java.length > 4 )  ? plotter(profile.java, 'Java') : <div />}
-             {(profile.C.length > 4 )  ? plotter(profile.java, 'Java') : <div />}
-             {(profile.CPP.length > 4 )  ? plotter(profile.java, 'Java') : <div />}
-             {(profile.python.length > 4 )  ? plotter(profile.java, 'Java') : <div />}
-             
-             
-
-
-             
-             
-             
-             
-             <p>wanna change the preferred languages??</p>
-            <Link to='/create-profile'>edit</Link>
+             {(profile.C.length > 4 )  ? plotter(profile.java, 'C') : <div />}
+             {(profile.CPP.length > 4 )  ? plotter(profile.java, 'C++') : <div />}
+             {(profile.python.length > 4 )  ? plotter(profile.java, 'Python') : <div />}
          
          </Fragment>
-         :<Fragment> <p>please type more samples to see your data </p></Fragment>
+         :<div> 
+           <center>
+           <div style = {{
+             fontSize: 22,
+             padding: 40,
+             margin: 10,
+             fontFamily: 'monospace',
+           }}>
+             Please type more samples to view your stats !
+           </div>
+           <img src={gif} />
+           </center>
+
+
+
+         </div>
+
+
          :<Fragment>
-             <p>you have not set up the preferred languages please set it up</p>
-            <Link to='/create-profile'>create profile</Link>
+         <div> 
+           <center>
+           <div style = {{
+             fontSize: 22,
+             padding: 40,
+             margin: 10,
+             fontFamily: 'monospace',
+           }}>
+             Please type more samples to view your stats !
+           </div>
+           <img src={gif} />
+           </center>
+           </div>
+            
         </Fragment>}
 
     </div>

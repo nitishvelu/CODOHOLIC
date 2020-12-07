@@ -65,7 +65,6 @@ class Controller extends React.Component {
       this.arr = this.arr1.map((ele, index) => {
           if (this.text[index] === '⏎' )
           {
-          
             return (<span key={index} className='sampleText endOfLine'>⏎</span>)
           }
           return (<span key={index} className='sampleText'>{ele}</span>)
@@ -74,7 +73,7 @@ class Controller extends React.Component {
     }
     handleChange = (event) => {
       this.loadData(event.target.value)
-      this.setState({value: event.target.value});
+      this.setState({selectedLang: event.target.value});
     }
 
     componentDidMount()
@@ -250,11 +249,11 @@ class Controller extends React.Component {
       userResults.accuracy = Math.round(this.text.length / (this.text.length + userResults.errors)*100);
       userResults.characters = this.text.length;
       userResults.lang = this.state.selectedLang;
-      console.log(userResults.lang);
+      console.log(` in teh component - ${this.state.selectedLang}`)
 
       // put true to make it work log in to see
       // this.props.profile.profile not working
-      if(true){
+      if(this.props.isAuthenticated){
         console.log('writing data..');
         this.writeData();
         }
@@ -290,7 +289,7 @@ class Controller extends React.Component {
           color: 'white',
         } } >
           <center style={{
-                      padding: 10,
+                      padding: 10, backgroundColor: 'rgb(52 99 114)'
 
           }}>Click to start</center>
         </div>
@@ -306,12 +305,14 @@ class Controller extends React.Component {
   Controller.propTypes = {
     createProfile: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    profile: PropTypes.object.isRequired
+    profile: PropTypes.object.isRequired,
+    isAuthenticated: PropTypes.bool
 
 };
 const mapStateToProps= state =>({
   auth: state.auth,
-  profile: state.profile
+  profile: state.profile,
+  isAuthenticated : state.auth.isAuthenticated,
 });
   
   export default connect(mapStateToProps,{createProfile,getCurrentProfile})(withRouter(Controller));//for history object

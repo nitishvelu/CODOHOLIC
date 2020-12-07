@@ -52,9 +52,10 @@
   max-width: 30ch;
   cursor: pointer;
   line-height: 1.1;
-  background-color: #fff;
-  border: 2px solid black;
+  background-color: #212121;
+  border: 2px solid #064c5d;
   border-radius: 2px;
   padding: 6px;
+  color: white;
 }
 
