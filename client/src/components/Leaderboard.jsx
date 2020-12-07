@@ -26,7 +26,7 @@ class Leaderboard extends React.Component {
     //     this.setState({ persons });
     //   })
         
-        fetch('http://localhost:5000/profile').then(res => res.json())
+        fetch('/profile').then(res => res.json())
         .then(json => {
             this.setState({
                 res : json
