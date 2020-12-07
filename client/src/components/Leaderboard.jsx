@@ -66,8 +66,8 @@ class Leaderboard extends React.Component {
 
 
     render()
-    {
-        return (this.state.loading? <Spinner/>:
+    {   //this.state.loading? <Spinner/>:
+        return (
            <div>{this.processData()}</div>
         )
     }
