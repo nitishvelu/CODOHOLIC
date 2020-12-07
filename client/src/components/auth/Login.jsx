@@ -52,9 +52,6 @@ const Login = ({login,isAuthenticated}) => {
       </span>
         </div>
       </form>
-      {/* <p >
-        Dont have an account? <Link to="/register">Sign Up</Link>
-      </p> */}
     </div>
     )
 }
