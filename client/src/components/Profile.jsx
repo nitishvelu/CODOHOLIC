@@ -99,7 +99,7 @@ const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
            }}>
              Please type more samples to view your stats !
            </div>
-           <img src={gif} />
+           <img src={gif} alt='kermit tping'/>
            </center>
 
 
@@ -118,7 +118,7 @@ const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
            }}>
              Please type more samples to view your stats !
            </div>
-           <img src={gif} />
+           <img src={gif} alt='kermit typing'/>
            </center>
            </div>
             
