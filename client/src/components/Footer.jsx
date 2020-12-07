@@ -3,7 +3,7 @@ import React from 'react';
 
 var style = {
     footer: {
-        backgroundColor: '#020d2c',
+        background : 'linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(5, 53, 68) 50%, rgb(8, 111, 133) 100%',
         width: '100%',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -11,7 +11,7 @@ var style = {
         position: 'fixed',
         bottom: 0,
         color: 'white',
-        textAlign: 'center',
+        textAlign: 'right',
 
     }
 }
@@ -30,7 +30,7 @@ class Footer extends React.Component {
         return (
            <footer style = {style.footer}>
                
-               <span>
+               <span style={{marginRight: 40}} >
                    contact us
                    </span>
            </footer>

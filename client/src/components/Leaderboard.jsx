@@ -40,9 +40,9 @@ class Leaderboard extends React.Component {
     processData = () => (this.state.res.map((ele,index) => {
             return (
                 <div style={{padding: '20px 10px', display: 'flex', justifyContent:'center', alignItems:'center', fontSize:24, lineHeight:'40px'}} key = {index} >
-                    <img style={{borderRadius: '50%'}} src = {ele.user.avatar} alt = 'user-pic' />
+                    <img width ='120px' style={{borderRadius: '50%'}} src = {ele.user.avatar} alt = 'user-pic' />
                     <div>
-                    <div style={{minWidth: 200, padding: 10}}>
+                    <div style={{minWidth: 200, padding: 10,fontFamily: 'JetBrains Mono'}}>
                     <div >
                         {`# ${index+1} - ${ele.user.name}`}
                         </div>

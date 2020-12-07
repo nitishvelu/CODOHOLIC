@@ -44,7 +44,6 @@ router.post('/',auth,async (req,res)=>{
                     }
                 });
                 break;
-
                 case "C":
                 await Profile.findOneAndUpdate({user:req.user.id},{
                     $push : {

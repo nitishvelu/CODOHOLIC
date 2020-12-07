@@ -253,7 +253,7 @@ class Controller extends React.Component {
 
       // put true to make it work log in to see
       // this.props.profile.profile not working
-      if(true){
+      if(this.props.isAuthenticated){
         console.log('writing data..');
         this.writeData();
         }
@@ -289,7 +289,7 @@ class Controller extends React.Component {
           color: 'white',
         } } >
           <center style={{
-                      padding: 10,
+                      padding: 10, backgroundColor: 'rgb(52 99 114)'
 
           }}>Click to start</center>
         </div>
@@ -305,12 +305,14 @@ class Controller extends React.Component {
   Controller.propTypes = {
     createProfile: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    profile: PropTypes.object.isRequired
+    profile: PropTypes.object.isRequired,
+    isAuthenticated: PropTypes.bool
 
 };
 const mapStateToProps= state =>({
   auth: state.auth,
-  profile: state.profile
+  profile: state.profile,
+  isAuthenticated : state.auth.isAuthenticated,
 });
   
   export default connect(mapStateToProps,{createProfile,getCurrentProfile})(withRouter(Controller));//for history object
