@@ -19,6 +19,7 @@ class Leaderboard extends React.Component {
     // }
     componentDidMount()
     {
+        //adding this to push
 
     //     axios.get(`http:localhost:5000/profile`)
     //   .then(res => {
