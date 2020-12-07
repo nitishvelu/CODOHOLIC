@@ -31,7 +31,7 @@ class Footer extends React.Component {
            <footer style = {style.footer}>
                
                <span style={{marginRight: 40}} >
-                   contact us
+                   <a style={{color:'#ffff'}}href="https://linkedin.com/in/nitish-velu-99a225114/"target="_blank"rel="noreferrer">contact us</a>
                    </span>
            </footer>
         )
