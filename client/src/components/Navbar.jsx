@@ -76,6 +76,9 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
+        <Link style={{color: colors.headerText}} to="/leaderboard">Leaderboard</Link>
+      </li>
+      <li>
         <Link to="/login" style = {{color: colors.headerText}}>Login</Link>
       </li>
       <li>
