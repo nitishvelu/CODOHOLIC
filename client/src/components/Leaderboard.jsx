@@ -1,8 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import {computeAverage} from './Profile'
-import Spinner from './Spinner';
-
 
 const fetch = require('node-fetch');
 
@@ -11,12 +9,13 @@ class Leaderboard extends React.Component {
     {
         // useless constructor will add stuff later
         super();
-        this.state = {res : [],loading: true}
+        this.state = {res : []}
     }
         
 
         
 
+        
     // }
     componentDidMount()
     {
@@ -30,9 +29,7 @@ class Leaderboard extends React.Component {
         fetch('/profile').then(res => res.json())
         .then(json => {
             this.setState({
-                res : json,
-                loading:false
-
+                res : json
             })
         });
 
@@ -66,7 +63,7 @@ class Leaderboard extends React.Component {
 
 
     render()
-    {   //this.state.loading? <Spinner/>:
+    {
         return (
            <div>{this.processData()}</div>
         )
