@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './Navbar';
 import {Link} from 'react-router-dom';
-
+import colors from '../utils/colors'
 import logo from '../images/coding.svg';
 const stylesheet = {
     logo: {
@@ -11,16 +11,17 @@ const stylesheet = {
     title: {
         fontFamily: 'monospace',
         fontSize: 25,
-        textDecoration: 'none', 
-        color: 'white' 
+        textDecoration: 'none',
+        color: 'white'
     },
     header: {
-        backgroundColor: "#2d6187",
+        background: colors.headerGradient,
         top: 0,
         width: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        padding: 10
     }
 }
 
@@ -37,10 +38,10 @@ class Header extends React.Component {
             <div >
             <header style = {stylesheet.header}>
                 <div style={{flexDirection:'row', display: "flex", alignItems: 'center'}}>
-                    <img 
+                    <img
                     style = {stylesheet.logo}
-                    id = 'logo' 
-                    src={logo} 
+                    id = 'logo'
+                    src={logo}
                     alt="logo"
                     />
                     <Link to='/' style = {stylesheet.title}>Codoholic</Link>
