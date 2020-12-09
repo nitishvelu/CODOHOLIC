@@ -4,7 +4,7 @@
 <p align="center">
  <img src="./client/public/logo_head.svg" width="350">
 </p>
-<a src="https://codoholic.herokuapp.com/">WE ARE LIVE</a>
+<a src=https://codoholic.herokuapp.com/>WE ARE LIVE</a>
 
 ## **Typing web app for coders**
  A repo for the CODOHOLIC project.<br>
