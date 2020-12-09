@@ -3,8 +3,8 @@
 
 <p align="center">
  <img src="./client/public/logo_head.svg" width="350">
-</p>
-<a src=https://codoholic.herokuapp.com/>WE ARE LIVE</a>
+</p><br>
+- [WE ARE LIVE](https://codoholic.herokuapp.com)
 
 ## **Typing web app for coders**
  A repo for the CODOHOLIC project.<br>
