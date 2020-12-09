@@ -2,8 +2,10 @@
 # **CODOHOLIC**
 
 <p align="center">
- <img src="./client/src/images/codinggithub.svg" width="350">
-</p>
+ <img src="./client/public/logo_head.svg" width="350">
+</p><br>
+
+[WE ARE LIVE](https://codoholic.herokuapp.com)
 
 ## **Typing web app for coders**
  A repo for the CODOHOLIC project.<br>
