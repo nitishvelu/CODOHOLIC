@@ -92,16 +92,20 @@ router.post('/',auth,async (req,res)=>{
                 data.snippets = res.snippetsCompleted;
                 data.wpm = res.wpm;
             }
+            console.log(data.snippets,data.wpm)
+            //calculating wpm 
+            var new_wpm = Math.round(((data.wpm*data.snippets + req.body.wpm)/(data.snippets + 1))* 10)/10;
+            //writing wpm to db
+            console.log(new_wpm);
+            Profile.findOneAndUpdate({user:req.user.id},{
+                wpm: new_wpm
+            },(err) => {
+                if (err) throw err;
+            });
 
         });
-        //calculating wpm 
-        var new_wpm = Math.round(((data.wpm*data.snippets + req.body.wpm)/(data.snippets + 1))* 10)/10;
-        //writing wpm to db
-        Profile.findOneAndUpdate({user:req.user.id},{
-            wpm: new_wpm
-        },(err) => {
-            if (err) throw err;
-        });
+
+       
         
         //incrementing characters and snippets
         let incVal = req.body.characters;
