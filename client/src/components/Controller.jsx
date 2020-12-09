@@ -138,7 +138,32 @@ class Controller extends React.Component {
     {
       // handle key event on the controller component
       event.preventDefault();
-      if((this.state.sampleIndex === this.text.length - 1))
+      
+        //auto-scroller experimental
+        if (event.keyCode === 13 && this.text.charCodeAt(this.state.sampleIndex) === 9166)
+        {
+          let div = document.getElementById('sampBox')
+
+          var hasVerticalScrollbar = div.scrollHeight > div.clientHeight;
+
+          let ele = document.getElementById('sampBox').children[this.state.sampleIndex];
+          if(hasVerticalScrollbar)
+          {
+            ele.parentNode.scrollTop = ele.offsetTop - ele.parentNode.offsetTop;
+          }
+        }
+
+
+        
+
+      
+      
+      
+        if( (String.fromCharCode(event.keyCode) === this.text[this.state.sampleIndex]) 
+              || (event.keyCode === 13 && this.text.charCodeAt(this.state.sampleIndex) === 9166)
+              || (event.keyCode === 9 && this.text.charCodeAt(this.state.sampleIndex) === 8633) )
+      {
+        if((this.state.sampleIndex === this.text.length - 1))
         {
           // end of sample computing time
           this.ready = false;
@@ -162,32 +187,6 @@ class Controller extends React.Component {
 
           return;
         }
-
-        //auto-scroller experimental
-        if (event.keyCode === 13 && this.text.charCodeAt(this.state.sampleIndex) === 9166)
-        {
-          let div = document.getElementById('sampBox')
-
-          var hasVerticalScrollbar = div.scrollHeight > div.clientHeight;
-
-          let ele = document.getElementById('sampBox').children[this.state.sampleIndex];
-          if(hasVerticalScrollbar)
-          {
-            ele.parentNode.scrollTop = ele.offsetTop - ele.parentNode.offsetTop;
-          }
-        }
-
-
-        
-        console.log(` typed - ${String.fromCharCode(event.keyCode)} code - ${event.keyCode} \nExpected - ${this.text[this.state.sampleIndex]}  code -  ${this.text.charCodeAt(this.state.sampleIndex)}` );
-      
-      
-      
-        if( (String.fromCharCode(event.keyCode) === this.text[this.state.sampleIndex]) 
-              || (event.keyCode === 13 && this.text.charCodeAt(this.state.sampleIndex) === 9166)
-              || (event.keyCode === 9 && this.text.charCodeAt(this.state.sampleIndex) === 8633) )
-      {
-
         
         if(this.state.sampleIndex === 0)
           this.startTimer();// starting timer

@@ -44,7 +44,7 @@ class Leaderboard extends React.Component {
             return (
                 <div style={{padding: '20px 10px', display: 'flex', justifyContent:'center', alignItems:'center', fontSize:24, lineHeight:'40px'}} key = {index} >
                     <img width ='120px' style={{borderRadius: '50%'}} src = {ele.user.avatar} alt = 'user-pic' />
-                    <div>
+                    <div style={{width: '30%'}}>
                     <div style={{minWidth: 200, padding: 10,fontFamily: 'JetBrains Mono'}}>
                     <div >
                         {`# ${index+1} - ${ele.user.name}`}
@@ -59,6 +59,9 @@ class Leaderboard extends React.Component {
                     </div>
                     <hr />
                     </div>
+                    <br />
+                    <br />
+                    <br />
                 </div>
             );
         }))
