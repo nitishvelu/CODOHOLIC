@@ -2,7 +2,7 @@
 # **CODOHOLIC**
 
 <p align="center">
- <img src="./client/src/images/codinggithub.svg" width="350">
+ <img src="./client/public/coding.svg" width="350">
 </p>
 
 ## **Typing web app for coders**
