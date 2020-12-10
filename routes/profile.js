@@ -2,7 +2,6 @@ const express = require('express');
 const router =express.Router();
 const auth = require('../middleware/auth');
 const Profile =require('../models/Profile');
-// eslint-disable-next-line no-unused-vars
 const User =require('../models/User');
 
 //private get users profile 

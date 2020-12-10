@@ -2,8 +2,6 @@
 import React from 'react';
 import {computeAverage} from './Profile'
 import Spinner from './Spinner';
-
-
 const fetch = require('node-fetch');
 
 class Leaderboard extends React.Component {
@@ -17,7 +15,6 @@ class Leaderboard extends React.Component {
 
         
 
-    // }
     componentDidMount()
     {
 
@@ -32,11 +29,8 @@ class Leaderboard extends React.Component {
             this.setState({
                 res : json,
                 loading:false
-
             })
         });
-
-        console.log(this.state.res);
         
         
     }
@@ -47,11 +41,11 @@ class Leaderboard extends React.Component {
                     <div style={{width: '30%'}}>
                     <div style={{minWidth: 200, padding: 10,fontFamily: 'JetBrains Mono'}}>
                     <div >
-                        {`# ${index+1} - ${ele.user.name}`}
+                        {`#${index+1} - ${ele.user.name}`}
                         </div>
 
                     <div >
-                    {`Speed : ${ele.wpm} WPM`}
+                    {`Speed : ${ele.wpm}WPM`}
                         </div>
                         <div >
                     {`Accuracy : ${computeAverage(ele.accuracy)}`}
@@ -59,9 +53,6 @@ class Leaderboard extends React.Component {
                     </div>
                     <hr />
                     </div>
-                    <br />
-                    <br />
-                    <br />
                 </div>
             );
         }))
