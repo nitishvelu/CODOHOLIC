@@ -36,7 +36,7 @@ class Leaderboard extends React.Component {
     }
     processData = () => (this.state.res.map((ele,index) => {
             return (
-                <div style={{padding: '20px 10px', display: 'flex', justifyContent:'center', alignItems:'center', fontSize:24, lineHeight:'40px'}} key = {index} >
+                <div style={{padding: '20px 10px',marginBottom:15, display: 'flex', justifyContent:'center', alignItems:'center', fontSize:24, lineHeight:'40px'}} key = {index} >
                     <img width ='120px' style={{borderRadius: '50%'}} src = {ele.user.avatar} alt = 'user-pic' />
                     <div style={{width: '30%'}}>
                     <div style={{minWidth: 200, padding: 10,fontFamily: 'JetBrains Mono'}}>
@@ -53,6 +53,7 @@ class Leaderboard extends React.Component {
                     </div>
                     <hr />
                     </div>
+            
                 </div>
             );
         }))
