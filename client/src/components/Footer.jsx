@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 var style = {
@@ -29,9 +30,13 @@ class Footer extends React.Component {
     {
         return (
            <footer style = {style.footer}>
+               <Link to="/about">
+
+               <span style={{marginRight: 40 ,color:'#ffff'}}>About</span>
+               </Link>
                
                <span style={{marginRight: 40}} >
-                   <a style={{color:'#ffff'}}href='mailto:nitishvelu@gmail.com;mehulbhandari20@gmail.com;srinivasvj01@gmail.com;'target="_blank"rel="noreferrer">contact us</a>
+                   <a style={{color:'#ffff'}}href='mailto:nitishvelu@gmail.com;mehulbhandari20@gmail.com;srinivasvj01@gmail.com;'target="_blank"rel="noreferrer">Contact us</a>
                    </span>
            </footer>
         )

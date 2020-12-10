@@ -10,6 +10,7 @@ import Profile from './components/Profile';
 import CreateProfile from './components/CreateProfile';
 import {Mobile} from './components/Mobile';
 import Leaderboard from './components/Leaderboard';
+import About from './components/About';
 
 //redux
 import {Provider} from 'react-redux';
@@ -50,6 +51,7 @@ return (
         <PrivateRoute  path='/profile' component={Profile}/>
         <PrivateRoute  path='/create-profile' component={CreateProfile}/>
         <Route  path='/leaderboard' component={Leaderboard}/>
+        <Route  path='/about' component={About}/>
 
 
         <Route path='/' component={Controller}/>
