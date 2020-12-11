@@ -75,7 +75,7 @@ const Profile = ({getCurrentProfile,auth:{user},profile:{profile,loading}}) => {
              <span>Average coding speed : {profile.wpm== null? 0:profile.wpm}WPM</span><br / >
              <span>Average Accuracy: {computeAverage(profile.accuracy)}%</span><br / >
              <span>Snippets Completed: {profile.snippetsCompleted== null? 0:profile.snippetsCompleted}</span><br / >
-             <span>Coding Languages: {profile.C.length > 0 ? ' C ': ''}{profile.java.length > 0 ? ' java': ''}{profile.CPP.length > 0 ? 'C++ ': ''}{profile.python.length > 0 ? 'python ': ''}</span><br / >
+             <span>Coding Languages: {profile.C.length > 0 ? ' C ': ''}{profile.java.length > 0 ? ' java': ''}{profile.CPP.length > 0 ? ' C++ ': ''}{profile.python.length > 0 ? ' python ': ''}</span><br / >
              <span>Total Characters typed: {profile.noOfCharacters== null? 0:profile.noOfCharacters}</span><br / >
              </div>
              </div>
