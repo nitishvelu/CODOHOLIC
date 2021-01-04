@@ -28,6 +28,10 @@ const ProfileSchema = new mongoose.Schema({
         type: [Number],
         default : []
     },
+    english: {
+        type: [Number],
+        default : []
+    },
     noOfCharacters:{
         type: Number,
         default : 0

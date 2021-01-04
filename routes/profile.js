@@ -32,7 +32,6 @@ router.post('/',auth,async (req,res)=>{
         let langCode = req.body.lang;
     
         //adding to lang array based on lang and add accuracy to acc array
-        console.log(langCode);
         switch (langCode)
         {
             case "java" :
@@ -62,6 +61,7 @@ router.post('/',auth,async (req,res)=>{
                     });
                     // to be filled after data is put
                 break;
+
                 case "python":
                 await Profile.findOneAndUpdate({user:req.user.id},{
                     $push : {
@@ -71,6 +71,17 @@ router.post('/',auth,async (req,res)=>{
                     });
                     // to be filled after data is put
                 break;
+
+                case "english":
+                await Profile.findOneAndUpdate({user:req.user.id},{
+                    $push : {
+                        english : req.body.wpm,
+                        accuracy : req.body.accuracy
+                    }
+                    });
+                    // to be filled after data is put
+                break;
+
                 default:
                 await Profile.findOneAndUpdate({user:req.user.id},{
                     $push : {
@@ -91,22 +102,28 @@ router.post('/',auth,async (req,res)=>{
                 data.snippets = res.snippetsCompleted;
                 data.wpm = res.wpm;
             }
-            console.log(data.snippets,data.wpm)
+            å
             //calculating wpm 
             var new_wpm = Math.round(((data.wpm*data.snippets + req.body.wpm)/(data.snippets + 1))* 10)/10;
             //writing wpm to db
-            console.log(new_wpm);
-            Profile.findOneAndUpdate({user:req.user.id},{
-                wpm: new_wpm
-            },(err) => {
-                if (err) throw err;
-            });
+            console.log(new_wpm)
+            
+            if(langCode !== 'english')
+            {
+                Profile.findOneAndUpdate({user:req.user.id},{
+                    wpm: new_wpm
+                },(err) => {
+                    if (err) throw err;
+                });
+            }
 
         });
 
        
         
         //incrementing characters and snippets
+        if(langCode !== 'english')
+            {
         let incVal = req.body.characters;
         await Profile.updateOne({user:req.user.id},{
             $inc : {
@@ -114,9 +131,10 @@ router.post('/',auth,async (req,res)=>{
                 snippetsCompleted : 1
             }
         });
+       }
 
         await Profile.findOne({user:req.user.id}),(err , res) => {
-            console.log(res);
+            console.log("boo");
         }
 
     }

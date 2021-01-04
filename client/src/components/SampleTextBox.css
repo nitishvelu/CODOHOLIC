@@ -1,9 +1,9 @@
 #sampBox {
   /* background-color: #000000; */
-  
-  background-color: #02262d;
+  word-break: break-word;
+  background-color: #1d0033bb;
   padding: 40px;
-  font-family: monospace;
+  font-family: 'Source Code Pro', monospace;
   /* border: solid 11px #ffffffed; */
   color: white;
   scrollbar-width: none;
@@ -12,7 +12,12 @@
   }
 
   .error { 
-    background-color: red !important;
+    color: white !important;
+    background-color: black !important;
+  }
+
+  .typed-error {
+    color: red !important;
   }
 
   .endOfLine::after{
@@ -29,14 +34,15 @@
   
   
 .typedSpan{
-    background-color:white;
-    color: black; 
-
+    /* background-color:rgba(255, 255, 255, 0.138); */
+    color: gray; 
 }
 
 .activeSpan{
-    background-color: #28abb9;
-    color: black;
+    background-color: #ffffff;
+    color: #121212;
+    font-size: 29px;
+    font-weight: bold;
 }
 
 #select-container {
@@ -46,15 +52,43 @@
 }
 
 .select-box {
+  font-family:  "JetBrains Mono";
   width: 100%;
   min-width: 15ch;
   max-width: 30ch;
   cursor: pointer;
   line-height: 1.1;
-  background-color: #212121;
+  background-color: #1b1b1b;
   border: 2px solid #064c5d;
   border-radius: 2px;
   padding: 6px;
   color: white;
 }
 
+.select-box:hover {
+  background-color: #1a062b;
+
+}
+
+#reload {
+  margin: 10px;
+  cursor: pointer;
+ 
+}
+
+#sound {
+  margin: 10px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+#reload:hover {
+  opacity: 1;
+  transform: rotateZ(360deg);
+  transition-duration: 1.5s;
+}
+
+#sound:hover{
+  transform: scale(1.2);
+  opacity: 1;
+}

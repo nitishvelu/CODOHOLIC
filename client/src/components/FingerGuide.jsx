@@ -22,7 +22,7 @@ class FingerGuide extends React.Component {
 
   render()
   {
-    const mainHandColor= "#999696";
+    const mainHandColor= "#490080";
     let fac = Math.random() < 0.5;
     var highlight = '#36ff00';
     //fingers.lp.includes(this.props.letter)

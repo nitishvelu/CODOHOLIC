@@ -7,7 +7,7 @@ var style = {
     padding: 29,
     fontFamily: 'JetBrains Mono',
     fontSize: "larger",
-    
+    backgroundColor: "black",
 }
 
 class About extends React.Component {

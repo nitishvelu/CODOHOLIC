@@ -25,7 +25,7 @@ const Login = ({login,isAuthenticated}) => {
     }
     return (
         <div style={{width: 1000, margin: '0 auto',marginTop: 160, display: "flex", flexDirection:'column', justifyContent:'center', alignItems: 'center'}}>
-            <h1>Sign In</h1>
+            <h1 >Sign In</h1>
       {/* <p >Sign In To Your Account</p> */}
       <form  onSubmit={e =>onSubmit(e)}>
        

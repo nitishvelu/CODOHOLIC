@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 var style = {
     footer: {
-        background : 'linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(5, 53, 68) 50%, rgb(8, 111, 133) 100%',
+        backgroundColor : '#1b1b1b',
         width: '100%',
         alignItems: 'center',
         justifyContent: 'space-between',

@@ -1,0 +1,22 @@
+.codelogo:hover{
+  transform: rotateY(180deg);
+}
+
+.title {
+  overflow:hidden;
+  animation: typing 2s steps(9) forwards;
+}
+
+@keyframes typing {
+  0% { 
+    width:0ch;
+    border-right:4px solid rgb(255, 255, 255);
+   }
+   99% {
+    border-right:4px solid rgb(255, 255, 255);
+   }
+  100% { 
+    width:9ch;
+    border-right: none;
+  }
+}

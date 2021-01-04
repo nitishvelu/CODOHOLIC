@@ -1,11 +1,10 @@
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "JetBrains Mono";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #212121;
+  background-color: #121212;
   overflow-x: hidden;
   color: white
 }
@@ -16,19 +15,33 @@ input {
     margin-bottom: 30px;
 }
 
+
 button {
   color: black;
     padding: 10px;
-    background-color: #086d82;
+    background-color: #0E2773;
     border: none;
     min-width: 120px;
     text-transform: UPPERCASE;
     color: white;
     font-weight: bold;
+    font-family: 'JetBrains mono';
+}
+
+button:hover {
+  background-color: #0455BF;
+    opacity: 1;
+  font-weight: bold;
+  cursor: pointer;
 }
 a {
-  color: blue;
+  color: #2c31d5;
   text-decoration: none;
+}
+
+a:hover {
+  color: #0455BF;
+  font-weight: bold;
 }
 h1 {
   text-transform: uppercase;
