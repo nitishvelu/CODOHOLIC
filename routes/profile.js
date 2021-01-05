@@ -102,7 +102,6 @@ router.post('/',auth,async (req,res)=>{
                 data.snippets = res.snippetsCompleted;
                 data.wpm = res.wpm;
             }
-            å
             //calculating wpm 
             var new_wpm = Math.round(((data.wpm*data.snippets + req.body.wpm)/(data.snippets + 1))* 10)/10;
             //writing wpm to db
