@@ -28,11 +28,17 @@ class Results extends React.Component {
     
     componentDidMount() {
 
-        fetch('http://quotes.stormconsultancy.co.uk/random.json').then(res => res.json())
+        
+
+
+
+        
+
+        fetch("https://api.quotable.io/random").then(res => res.json())
         .then(json => {
             let qobj = json;
             this.setState ({
-                data: qobj
+                data: qobj,
             });
         });
         
@@ -45,12 +51,12 @@ class Results extends React.Component {
     clickHandle = () => {
 
         //temp fix just reloading page
-        window.location.reload(false);
-        document.getElementById('sampBox').style.display = 'block';
-        document.getElementById('controller').style.display = 'block';
-        document.getElementById('controller').innerHTML = 'Click to start';
-        console.log(document.getElementById('controller').innerHTML);
-        document.getElementById('result').style.display = 'none';
+        window.location.reload();
+        // document.getElementById('sampBox').style.display = 'block';
+        // document.getElementById('controller').style.display = 'block';
+        // document.getElementById('controller').innerHTML = 'Click to start';
+        // console.log(document.getElementById('controller').innerHTML);
+        // document.getElementById('result').style.display = 'none';
     }
 
     render()
@@ -60,7 +66,7 @@ class Results extends React.Component {
         {
             return (
             <div style={style}>
-                {this.state.data ? <span style={{ fontStyle : "oblique" }}>"{this.state.data.quote}" ~{this.state.data.author} <br / > <br /> </span> : <br / >}
+                {this.state.data ? <span style={{ fontStyle : "oblique" }}>"{this.state.data.content}" ~{this.state.data.author} <br / > <br /> </span> : <br / >}
                 Speed: {this.props.userResults.wpm}WPM<br/> 
                 Errors: {this.props.userResults.errors}<br/>
                 Accuracy: {this.props.userResults.accuracy}%<br/>
@@ -71,7 +77,6 @@ class Results extends React.Component {
         }
         return null;
     }
-
 }
 
 

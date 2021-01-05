@@ -50,12 +50,7 @@ class Controller extends React.Component {
 
 
     loadData = (val) => {
-      axios.post('/lang',{lang: val})
-      .then(response => console.log(response.data))
-      .catch(err =>  console.log(err));
-
       switch (val)
-
       {
         case 'java':
           this.sampleText = snippet.java;
@@ -92,9 +87,17 @@ class Controller extends React.Component {
           });
         
     }
+
+
     handleChange = (event) => {
+
+      axios.post('/lang',{lang: event.target.value})
+      .then(response => console.log(response.data))
+      .catch(err =>  console.log(err));
       this.loadData(event.target.value)
       this.setState({selectedLang: event.target.value});
+
+
     }
 
     componentDidMount()
@@ -109,8 +112,13 @@ class Controller extends React.Component {
           this.loadData(res.data);
           this.setState({selectedLang: res.data});
         }
+        else {
+          this.loadData(this.state.selectedLang);
+        }
+      }).catch(err => {
+        console.log(err);
+        this.loadData(this.state.selectedLang);
       });
-
 
 
       this.setState({
@@ -127,11 +135,6 @@ class Controller extends React.Component {
       this.div.addEventListener('keydown',this.handleKeydown);
 
 
-    }
-
-    componentWillUnmount()
-    {
-      this.render();
     }
   
     shiftCursor = pos =>
