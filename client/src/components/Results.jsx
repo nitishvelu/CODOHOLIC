@@ -1,10 +1,10 @@
 import React from 'react';
 
 const style = {
-    backgroundColor:  '#1a062b',
+    backgroundColor: '#1a062b',
     color: 'white',
     fontFamily: 'JetBrains mono',
-    padding : 30,
+    padding: 30,
     fontSize: 22,
     lineHeight: '50px',
 }
@@ -16,35 +16,34 @@ const style = {
 
 
 class Results extends React.Component {
-    constructor (props)
-    {
+    constructor(props) {
         super(props);
         // useless constructor will add stuff later
         this.state = {
             data: null
         };
-        
+
     }
-    
+
     componentDidMount() {
 
-        
 
 
 
-        
 
-        fetch("https://api.quotable.io/random").then(res => res.json())
-        .then(json => {
-            let qobj = json;
-            this.setState ({
-                data: qobj,
+
+
+        fetch("https://api.animechan.io/v1/quotes/random").then(res => res.json())
+            .then(json => {
+                let qobj = json.data;
+                this.setState({
+                    data: qobj,
+                });
             });
-        });
-        
+
     }
 
-        
+
 
 
 
@@ -59,20 +58,18 @@ class Results extends React.Component {
         // document.getElementById('result').style.display = 'none';
     }
 
-    render()
-    {
+    render() {
 
-        if(this.props.data)
-        {
+        if (this.props.data) {
             return (
-            <div style={style}>
-                {this.state.data ? <span style={{ fontStyle : "oblique" }}>"{this.state.data.content}" ~{this.state.data.author} <br / > <br /> </span> : <br / >}
-                Speed: {this.props.userResults.wpm}WPM<br/> 
-                Errors: {this.props.userResults.errors}<br/>
-                Accuracy: {this.props.userResults.accuracy}%<br/>
-                Time: {Math.round(this.props.userResults.elapsedTime)} seconds<br/>
-                <button  onClick = {this.clickHandle}>Go again</button>
-            </div>
+                <div style={style}>
+                    {this.state.data ? <span style={{ fontStyle: "oblique" }}>"{this.state.data.content}" ~{this.state.data.character.name} <br /> <br /> </span> : <br />}
+                    Speed: {this.props.userResults.wpm}WPM<br />
+                    Errors: {this.props.userResults.errors}<br />
+                    Accuracy: {this.props.userResults.accuracy}%<br />
+                    Time: {Math.round(this.props.userResults.elapsedTime)} seconds<br />
+                    <button onClick={this.clickHandle}>Go again</button>
+                </div>
             );
         }
         return null;
